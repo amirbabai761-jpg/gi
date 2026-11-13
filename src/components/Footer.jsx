@@ -31,7 +31,7 @@ const footerColumns = [
       { label: 'Engagement & Bridal', to: '/shop?category=bridal' },
       { label: 'Gifts', to: '/shop?sort=featured' },
       { label: 'Wishlist', to: '/wishlist' },
-      { label: 'Gift Cards', to: '/shop' },
+      { label: 'Gift Cards', to: '/gift-cards' },
     ],
   },
 ]
@@ -114,10 +114,10 @@ export default function Footer() {
       <div className="container footer-bottom">
         <p>© {new Date().getFullYear()} Maison Lumière. All rights reserved.</p>
         <ul className="footer-legal">
-          <li><a href="#terms">Terms</a></li>
-          <li><a href="#privacy">Privacy</a></li>
-          <li><a href="#accessibility">Accessibility</a></li>
-          <li><a href="#cookies">Cookies</a></li>
+          <li><Link to="/legal/terms">Terms</Link></li>
+          <li><Link to="/legal/privacy">Privacy</Link></li>
+          <li><Link to="/legal/accessibility">Accessibility</Link></li>
+          <li><Link to="/legal/cookies">Cookies</Link></li>
         </ul>
         <ul className="payments" aria-label="Accepted payment methods">
           <li>VISA</li>

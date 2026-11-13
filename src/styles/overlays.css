@@ -230,7 +230,8 @@
   align-items: flex-start;
 }
 
-.cart-line__top a {
+.cart-line__top a,
+.cart-line__top > span {
   font-family: var(--serif);
   font-size: 17px;
   line-height: 1.3;

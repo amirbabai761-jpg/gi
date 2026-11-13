@@ -59,16 +59,27 @@ export default function CartDrawer() {
             {cart.map((line) => {
               const product = getProduct(line.id)
               if (!product) return null
+              const isGiftCard = product.category === 'gift-cards'
               return (
                 <li key={line.key} className="cart-line">
-                  <Link to={`/product/${product.id}`} onClick={() => closeUi('cart')} className="cart-line__img">
-                    <img src={photo(product.images[0], 240)} alt={product.name} loading="lazy" />
-                  </Link>
+                  {isGiftCard ? (
+                    <span className="cart-line__img">
+                      <img src={photo(product.images[0], 240)} alt={product.name} loading="lazy" />
+                    </span>
+                  ) : (
+                    <Link to={`/product/${product.id}`} onClick={() => closeUi('cart')} className="cart-line__img">
+                      <img src={photo(product.images[0], 240)} alt={product.name} loading="lazy" />
+                    </Link>
+                  )}
                   <div className="cart-line__body">
                     <div className="cart-line__top">
-                      <Link to={`/product/${product.id}`} onClick={() => closeUi('cart')}>
-                        {product.name}
-                      </Link>
+                      {isGiftCard ? (
+                        <span>{product.name}</span>
+                      ) : (
+                        <Link to={`/product/${product.id}`} onClick={() => closeUi('cart')}>
+                          {product.name}
+                        </Link>
+                      )}
                       <button
                         className="text-btn"
                         onClick={() => {

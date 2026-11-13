@@ -18,7 +18,7 @@ const giftEdits = [
   { label: 'Under $2,500', to: '/shop?max=2500' },
   { label: 'The Anniversary Edit', to: '/shop?collection=modern-heirlooms' },
   { label: 'Pearl & Moonstone', to: '/shop?sort=new' },
-  { label: 'Gift Cards', to: '/shop' },
+  { label: 'Gift Cards', to: '/gift-cards' },
 ]
 
 const announcements = [

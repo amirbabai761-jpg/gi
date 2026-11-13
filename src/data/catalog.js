@@ -404,6 +404,81 @@ export const products = [
   },
 ]
 
+// Gift cards live beside the jewelry catalogue so they can travel through the
+// same bag and checkout flow, but they stay out of the shop grid and filters.
+export const giftCards = [
+  {
+    id: 'gift-card-250',
+    name: 'Gift Card — $250',
+    category: 'gift-cards',
+    collection: 'gift-cards',
+    price: 250,
+    rating: 5,
+    reviews: 0,
+    metal: 'Digital delivery',
+    images: ['1515562141207-7a88fb7ce338'],
+    blurb: 'A digital gift card, delivered by email in signature packaging.',
+    description: 'Delivered by email, redeemable online or in the Paris atelier.',
+    metals: ['Digital delivery'],
+    sizes: ['By email'],
+    specs: [['Delivery', 'Email, within one business day'], ['Validity', '24 months']],
+  },
+  {
+    id: 'gift-card-500',
+    name: 'Gift Card — $500',
+    category: 'gift-cards',
+    collection: 'gift-cards',
+    price: 500,
+    rating: 5,
+    reviews: 0,
+    metal: 'Digital delivery',
+    images: ['1515562141207-7a88fb7ce338'],
+    blurb: 'A digital gift card, delivered by email in signature packaging.',
+    description: 'Delivered by email, redeemable online or in the Paris atelier.',
+    metals: ['Digital delivery'],
+    sizes: ['By email'],
+    specs: [['Delivery', 'Email, within one business day'], ['Validity', '24 months']],
+  },
+  {
+    id: 'gift-card-1000',
+    name: 'Gift Card — $1,000',
+    category: 'gift-cards',
+    collection: 'gift-cards',
+    price: 1000,
+    rating: 5,
+    reviews: 0,
+    metal: 'Digital delivery',
+    images: ['1515562141207-7a88fb7ce338'],
+    blurb: 'A digital gift card, delivered by email in signature packaging.',
+    description: 'Delivered by email, redeemable online or in the Paris atelier.',
+    metals: ['Digital delivery'],
+    sizes: ['By email'],
+    specs: [['Delivery', 'Email, within one business day'], ['Validity', '24 months']],
+  },
+  {
+    id: 'gift-card-2500',
+    name: 'Gift Card — $2,500',
+    category: 'gift-cards',
+    collection: 'gift-cards',
+    price: 2500,
+    rating: 5,
+    reviews: 0,
+    metal: 'Digital delivery',
+    images: ['1515562141207-7a88fb7ce338'],
+    blurb: 'A digital gift card, delivered by email in signature packaging.',
+    description: 'Delivered by email, redeemable online or in the Paris atelier.',
+    metals: ['Digital delivery'],
+    sizes: ['By email'],
+    specs: [['Delivery', 'Email, within one business day'], ['Validity', '24 months']],
+  },
+]
+
+export const allProducts = [...products, ...giftCards]
+
+export const giftCardAmounts = [250, 500, 1000, 2500]
+
+export const getGiftCard = (amount) => giftCards.find((card) => card.price === amount)
+
 export const testimonials = [
   {
     quote:
@@ -548,6 +623,6 @@ export const formatPrice = (value) =>
     maximumFractionDigits: 0,
   }).format(value)
 
-export const getProduct = (id) => products.find((p) => p.id === id)
+export const getProduct = (id) => allProducts.find((p) => p.id === id)
 
 export const featuredProducts = products.filter((p) => p.badge === 'Bestseller').slice(0, 8)

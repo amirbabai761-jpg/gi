@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useReducer } from 'react'
-import { products } from '../data/catalog.js'
+import { allProducts } from '../data/catalog.js'
 
 const StoreContext = createContext(null)
 
@@ -18,9 +18,11 @@ function loadPersisted() {
     if (!raw) return {}
     const parsed = JSON.parse(raw)
     return {
-      cart: Array.isArray(parsed.cart) ? parsed.cart.filter((l) => products.some((p) => p.id === l.id)) : [],
+      cart: Array.isArray(parsed.cart)
+        ? parsed.cart.filter((l) => allProducts.some((p) => p.id === l.id))
+        : [],
       wishlist: Array.isArray(parsed.wishlist)
-        ? parsed.wishlist.filter((id) => products.some((p) => p.id === id))
+        ? parsed.wishlist.filter((id) => allProducts.some((p) => p.id === id))
         : [],
     }
   } catch {
@@ -90,7 +92,7 @@ export function StoreProvider({ children }) {
   const value = useMemo(() => {
     const cartCount = state.cart.reduce((sum, line) => sum + line.qty, 0)
     const subtotal = state.cart.reduce((sum, line) => {
-      const product = products.find((p) => p.id === line.id)
+      const product = allProducts.find((p) => p.id === line.id)
       return sum + (product ? product.price * line.qty : 0)
     }, 0)
 

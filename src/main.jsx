@@ -8,6 +8,8 @@ import './styles/home.css'
 import './styles/shop.css'
 import './styles/product.css'
 import './styles/pages.css'
+import './styles/gift.css'
+import './styles/legal.css'
 import './styles/overlays.css'
 
 createRoot(document.getElementById('root')).render(

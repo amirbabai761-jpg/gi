@@ -17,6 +17,8 @@ import About from './pages/About.jsx'
 import Journal from './pages/Journal.jsx'
 import JournalPost from './pages/JournalPost.jsx'
 import Checkout from './pages/Checkout.jsx'
+import GiftCards from './pages/GiftCards.jsx'
+import Legal from './pages/Legal.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function ScrollToTop() {
@@ -46,6 +48,9 @@ export default function App() {
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/:slug" element={<JournalPost />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/gift-cards" element={<GiftCards />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/legal/:doc" element={<Legal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

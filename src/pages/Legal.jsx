@@ -5,157 +5,157 @@ import NotFound from './NotFound.jsx'
 
 const documents = {
   terms: {
-    title: 'Terms of Sale',
-    updated: 'November 2026',
+    title: 'شرایط فروش',
+    updated: 'نوامبر ۲۰۲۶',
     intro:
-      'These terms govern purchases made from Maison Lumière online and in our Paris atelier. By placing an order you accept them.',
+      'این شرایط بر خریدهای انجام‌شده از مزون لومیر، آنلاین و در آتلیهٔ پاریس، حاکم است. با ثبت سفارش آن را می‌پذیرید.',
     sections: [
       {
-        heading: 'Orders and acceptance',
+        heading: 'سفارش و پذیرش',
         body: [
-          'An order is accepted when we send a written confirmation and issue your order number. We may decline an order where a piece is no longer available, where a stone cannot be matched, or where we suspect fraud.',
-          'Bespoke commissions and engraved pieces are confirmed only after a written brief and a deposit of 50%.',
+          'سفارش زمانی پذیرفته می‌شود که تأییدیهٔ کتبی را بفرستیم و شمارهٔ سفارش شما صادر شود. ممکن است سفارشی را رد کنیم؛ اگر قطعه دیگر موجود نباشد، اگر سنگ همتایی پیدا نکند یا اگر نشانه‌ای از تقلب ببینیم.',
+          'سفارش‌های اختصاصی و قطعه‌های حکاکی‌شده تنها پس از ثبت مشخصات کتبی و پرداخت ۵۰٪ پیش‌پرداخت تأیید می‌شوند.',
         ],
       },
       {
-        heading: 'Prices and payment',
+        heading: 'قیمت‌ها و پرداخت',
         body: [
-          'Prices are shown in US dollars and include French VAT where applicable. Duties and taxes for destinations outside the EU are calculated at checkout.',
-          'Payment is taken at the time the order is confirmed. We accept major cards, PayPal and bank transfer for orders above $10,000.',
+          'قیمت‌ها به دلار آمریکا نمایش داده می‌شوند و در صورت لزوم شامل مالیات بر ارزش افزودهٔ فرانسه هستند. عوارض و مالیات مقاصد بیرون از اتحادیهٔ اروپا در مرحلهٔ پرداخت محاسبه می‌شود.',
+          'پرداخت هنگام تأیید سفارش انجام می‌شود. کارت‌های اصلی، پی‌پال و حوالهٔ بانکی برای سفارش‌های بالای ۱۰٬۰۰۰ دلار پذیرفته می‌شود.',
         ],
       },
       {
-        heading: 'Delivery',
+        heading: 'تحویل',
         body: [
-          'Every shipment is insured, tracked and requires a signature. Paris and EU orders arrive in 2–3 business days; international orders in 3–5.',
-          'Risk passes to you on delivery. If a parcel arrives damaged, contact client services within 48 hours and keep the original packaging.',
+          'هر مرسوله بیمه و ردیابی می‌شود و با امضای تحویل‌گیرنده تحویل می‌گردد. سفارش‌های پاریس و اتحادیهٔ اروپا در ۲ تا ۳ روز کاری و سفارش‌های بین‌المللی در ۳ تا ۵ روز می‌رسند.',
+          'مسئولیت کالا هنگام تحویل به شما منتقل می‌شود. اگر مرسوله آسیب‌دیده رسید، تا ۴۸ ساعت با خدمات مشتریان تماس بگیرید و بسته‌بندی اصلی را نگه دارید.',
         ],
       },
       {
-        heading: 'Returns and exchanges',
+        heading: 'مرجوعی و تعویض',
         body: [
-          'Unworn pieces may be returned within 30 days of delivery with their certificate and packaging. Contact client services and we will arrange a prepaid, insured label.',
-          'Engraved pieces, bespoke commissions and gift cards are final sale, though they remain eligible for lifetime servicing.',
+          'قطعه‌های استفاده‌نشده تا ۳۰ روز پس از تحویل، همراه با گواهی و بسته‌بندی، قابل مرجوعی هستند. با خدمات مشتریان تماس بگیرید تا برچسب پیش‌پرداخت‌شده و بیمه‌شده ترتیب دهیم.',
+          'قطعه‌های حکاکی‌شده، سفارش‌های اختصاصی و کارت‌های هدیه فروش قطعی دارند، اما همچنان مشمول سرویس مادام‌العمر هستند.',
         ],
       },
       {
-        heading: 'Repairs and servicing',
+        heading: 'تعمیر و سرویس',
         body: [
-          'Every piece includes lifetime cleaning, inspection and re-polishing. The first ring resize within twelve months is complimentary; later resizes and restoration are quoted at cost.',
+          'هر قطعه شامل تمیزکاری، بازبینی و پولیش مادام‌العمر است. نخستین تغییر اندازهٔ انگشتر در دوازده ماه اول رایگان است؛ تغییر اندازه‌های بعدی و بازسازی با قیمت تمام‌شده محاسبه می‌شود.',
         ],
       },
       {
-        heading: 'Contact',
+        heading: 'تماس',
         body: [
-          'Maison Lumière, 18 Rue de la Paix, 75002 Paris, France. clients@maisonlumiere.com · +33 1 84 74 20 10.',
+          'مزون لومیر، خیابان دو لا پِ شمارهٔ ۱۸، ۷۵۰۰۲ پاریس، فرانسه. clients@maisonlumiere.com · ‎+33 1 84 74 20 10',
         ],
       },
     ],
   },
   privacy: {
-    title: 'Privacy Policy',
-    updated: 'November 2026',
+    title: 'سیاست حریم خصوصی',
+    updated: 'نوامبر ۲۰۲۶',
     intro:
-      'We collect only what is needed to make, deliver and service your jewellery — and we never sell it. This policy explains what we hold and why.',
+      'ما فقط آنچه برای ساخت، ارسال و سرویس جواهرات شما لازم است جمع می‌کنیم — و هرگز آن را نمی‌فروشیم. این سیاست توضیح می‌دهد چه چیزی نگه می‌داریم و چرا.',
     sections: [
       {
-        heading: 'What we collect',
+        heading: 'چه داده‌ای جمع می‌کنیم',
         body: [
-          'Contact details (name, email, phone, delivery address), order history, ring sizes, and the notes you give us for engraving or appointments.',
-          'Payment details are handled by our payment providers and are never stored on our servers.',
+          'اطلاعات تماس (نام، ایمیل، تلفن، نشانی تحویل)، تاریخچهٔ سفارش، سایز انگشتر و یادداشت‌هایی که برای حکاکی یا وقت مشاوره به ما می‌دهید.',
+          'اطلاعات پرداخت توسط ارائه‌دهندگان پرداخت ما مدیریت می‌شود و هرگز روی سرورهای ما ذخیره نمی‌گردد.',
         ],
       },
       {
-        heading: 'How we use it',
+        heading: 'چگونه از آن استفاده می‌کنیم',
         body: [
-          'To prepare and deliver your order, to service and repair pieces, to answer your enquiries, and — where you have asked — to send collection previews and atelier letters.',
-          'We keep records of bespoke commissions so that a piece can be repaired or recreated years later.',
+          'برای آماده‌سازی و ارسال سفارش، سرویس و تعمیر قطعه‌ها، پاسخ به پرسش‌های شما و — اگر خواسته باشید — ارسال پیش‌نمایش مجموعه‌ها و نامه‌های آتلیه.',
+          'سوابق سفارش‌های اختصاصی را نگه می‌داریم تا سال‌ها بعد بتوان قطعه را تعمیر یا بازسازی کرد.',
         ],
       },
       {
-        heading: 'Sharing',
+        heading: 'به اشتراک‌گذاری',
         body: [
-          'We share only what is necessary with insured couriers, payment providers and our workshop management system. All are bound by confidentiality and data-processing agreements.',
+          'فقط آنچه لازم است با پیک‌های بیمه‌شده، ارائه‌دهندگان پرداخت و سیستم مدیریت کارگاه در میان می‌گذاریم. همهٔ آن‌ها به توافق‌نامه‌های محرمانگی و پردازش داده پایبندند.',
         ],
       },
       {
-        heading: 'Cookies and local storage',
+        heading: 'کوکی‌ها و حافظهٔ محلی',
         body: [
-          'Essential cookies keep your session and bag working. Your bag and wishlist are saved in your browser\u2019s local storage on this device, not on our servers.',
-          'Analytics cookies are used only with your consent, and you can withdraw it at any time from the cookie preferences link in the footer.',
+          'کوکی‌های ضروری نشست و سبد خرید شما را فعال نگه می‌دارند. سبد و علاقه‌مندی‌های شما در حافظهٔ محلی مرورگر، روی همین دستگاه ذخیره می‌شوند، نه روی سرورهای ما.',
+          'کوکی‌های تحلیلی فقط با رضایت شما استفاده می‌شوند و هر زمان می‌توانید آن را از طریق پیوند تنظیمات کوکی در پانویس پس بگیرید.',
         ],
       },
       {
-        heading: 'Your rights',
+        heading: 'حقوق شما',
         body: [
-          'You may request a copy of your data, correct it, or ask us to delete what we are not required to keep for accounting and warranty purposes.',
-          'Write to privacy@maisonlumiere.com and we will respond within 30 days.',
+          'می‌توانید نسخه‌ای از داده‌های خود را بخواهید، آن را تصحیح کنید یا بخواهید آنچه را برای حسابداری و گارانتی لازم نیست حذف کنیم.',
+          'به privacy@maisonlumiere.com بنویسید تا ظرف ۳۰ روز پاسخ دهیم.',
         ],
       },
     ],
   },
   accessibility: {
-    title: 'Accessibility',
-    updated: 'November 2026',
+    title: 'دسترسی‌پذیری',
+    updated: 'نوامبر ۲۰۲۶',
     intro:
-      'A house that designs for everyone should be usable by everyone. We aim to meet WCAG 2.2 level AA across the storefront and the atelier appointment flow.',
+      'خانه‌ای که برای همه طراحی می‌کند باید برای همه قابل استفاده باشد. هدف ما رعایت سطح AA از WCAG 2.2 در سراسر فروشگاه و فرایند رزرو وقت آتلیه است.',
     sections: [
       {
-        heading: 'What we have done',
+        heading: 'آنچه انجام داده‌ایم',
         body: [
-          'Every page is built with semantic landmarks, a visible keyboard focus ring and a skip-to-content link. Interactive elements can be reached and operated without a mouse.',
-          'Product imagery carries descriptive alternative text, and colour combinations are checked for readable contrast against our ivory and champagne backgrounds.',
+          'هر صفحه با نشانه‌های معنایی، حلقهٔ فوکوس دیدنی برای صفحه‌کلید و پیوند پرش به محتوا ساخته شده است. اجزای تعاملی بدون ماوس قابل دسترسی و استفاده‌اند.',
+          'تصاویر محصول متن جایگزین توصیفی دارند و ترکیب رنگ‌ها از نظر کنتراست خوانا در برابر پس‌زمینه‌های عاجی و شامپاینی بررسی می‌شود.',
         ],
       },
       {
-        heading: 'Motion and media',
+        heading: 'حرکت و رسانه',
         body: [
-          'Animations are brief and never block reading. The site does not autoplay audio or video, and reduced-motion preferences are respected where animation is decorative.',
+          'انیمیشن‌ها کوتاه‌اند و هرگز خواندن را مختل نمی‌کنند. سایت صدا یا ویدئو را خودکار پخش نمی‌کند و در جاهایی که حرکت تزئینی است، تنظیم کاهش حرکت رعایت می‌شود.',
         ],
       },
       {
-        heading: 'Ongoing work',
+        heading: 'کار در جریان',
         body: [
-          'We audit the storefront each season with assistive technology and fix what we find. If something is difficult to use, tell us — it is the fastest route to a fix.',
+          'هر فصل فروشگاه را با فناوری‌های کمکی بررسی و آنچه پیدا می‌کنیم اصلاح می‌کنیم. اگر جایی سخت استفاده می‌شود، به ما بگویید — سریع‌ترین راه اصلاح همین است.',
         ],
       },
       {
-        heading: 'Feedback',
+        heading: 'بازخورد',
         body: [
-          'Email accessibility@maisonlumiere.com or call +33 1 84 74 20 10, Monday to Saturday, 10am–7pm CET. We can also take orders by telephone.',
+          'به accessibility@maisonlumiere.com ایمیل بزنید یا با ‎+33 1 84 74 20 10، دوشنبه تا شنبه ۱۰ صبح تا ۷ عصر، تماس بگیرید. سفارش تلفنی هم می‌پذیریم.',
         ],
       },
     ],
   },
   cookies: {
-    title: 'Cookie Policy',
-    updated: 'November 2026',
+    title: 'سیاست کوکی‌ها',
+    updated: 'نوامبر ۲۰۲۶',
     intro:
-      'This site uses a small number of cookies and similar technologies. Here is what each one does, and how to control them.',
+      'این سایت شمار کمی کوکی و فناوری‌های مشابه استفاده می‌کند. در ادامه می‌بینید هر کدام چه می‌کند و چگونه کنترلشان کنید.',
     sections: [
       {
-        heading: 'Essential cookies',
+        heading: 'کوکی‌های ضروری',
         body: [
           'These keep your session secure and your bag available as you move through the site. They cannot be switched off without breaking the storefront.',
         ],
       },
       {
-        heading: 'Preferences',
+        heading: 'تنظیمات',
         body: [
-          'Your bag and wishlist are stored locally in your browser so they are still here when you return. They never leave your device and are not used for advertising.',
+          'سبد و علاقه‌مندی‌های شما به‌صورت محلی در مرورگر ذخیره می‌شوند تا وقتی برگشتید همان‌جا باشند. هرگز از دستگاه شما خارج نمی‌شوند و برای تبلیغات به کار نمی‌روند.',
         ],
       },
       {
-        heading: 'Analytics',
+        heading: 'تحلیل بازدید',
         body: [
-          'With your consent we measure which collections are viewed and where visitors leave the checkout, in aggregate and without identifying individuals. Declining simply means we do not receive these measurements.',
+          'با رضایت شما می‌سنجیم کدام مجموعه‌ها دیده می‌شوند و بازدیدکنندگان کجای مرحلهٔ پرداخت را ترک می‌کنند؛ به‌صورت تجمیعی و بدون شناسایی افراد. رد کردن یعنی این سنجه‌ها را دریافت نمی‌کنیم.',
         ],
       },
       {
-        heading: 'Managing cookies',
+        heading: 'مدیریت کوکی‌ها',
         body: [
-          'You can clear or block cookies in your browser settings at any time. Blocking essential cookies will prevent checkout from working.',
-          'Questions about tracking can be sent to privacy@maisonlumiere.com.',
+          'هر زمان می‌توانید کوکی‌ها را در تنظیمات مرورگر خود پاک یا مسدود کنید. مسدود کردن کوکی‌های ضروری مانع کار کردن مرحلهٔ پرداخت می‌شود.',
+          'پرسش‌های مربوط به ردیابی را به privacy@maisonlumiere.com بفرستید.',
         ],
       },
     ],
@@ -172,20 +172,20 @@ export default function Legal() {
 
   return (
     <div className="container legal">
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
+      <nav className="breadcrumb" aria-label="مسیر صفحه">
+        <Link to="/">خانه</Link>
         <span>/</span>
         <span>{document.title}</span>
       </nav>
 
       <header className="legal__head">
-        <p className="eyebrow">Client information</p>
+        <p className="eyebrow">اطلاعات مشتری</p>
         <h1 className="page-title">{document.title}</h1>
-        <p className="legal__updated">Last updated · {document.updated}</p>
+        <p className="legal__updated">آخرین به‌روزرسانی · {document.updated}</p>
       </header>
 
       <div className="legal__grid">
-        <nav className="legal__nav" aria-label="Legal documents">
+        <nav className="legal__nav" aria-label="اسناد حقوقی">
           {order.map((slug) => (
             <Link
               key={slug}
@@ -211,9 +211,8 @@ export default function Legal() {
           ))}
           <div className="legal__foot">
             <Icon name="mail" size={18} />
-            <p>
-              Questions about this document? Write to <a href="mailto:clients@maisonlumiere.com">clients@maisonlumiere.com</a>{' '}
-              and our client team will answer within one business day.
+            <p>پرسشی دربارهٔ این سند دارید؟ بنویسید به<a href="mailto:clients@maisonlumiere.com">clients@maisonlumiere.com</a>{' '}
+              و تیم مشتریان ما در یک روز کاری پاسخ می‌دهد.
             </p>
           </div>
         </article>

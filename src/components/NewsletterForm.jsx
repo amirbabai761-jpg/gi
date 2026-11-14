@@ -12,7 +12,7 @@ export default function NewsletterForm({ compact = false, onDone }) {
       onSubmit={(e) => {
         e.preventDefault()
         if (!email.trim()) return
-        notify('Thank you — you are on the list. (Demo: no email has been sent.)')
+        notify('سپاسگزاریم — در فهرست قرار گرفتید. (نمایشی: ایمیلی ارسال نشده است.)')
         setEmail('')
         if (onDone) onDone()
       }}
@@ -24,13 +24,11 @@ export default function NewsletterForm({ compact = false, onDone }) {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Your email address"
-          aria-label="Email address"
+          placeholder="نشانی ایمیل شما"
+          aria-label="نشانی ایمیل"
         />
       </label>
-      <button className="btn btn--gold btn--sm" type="submit">
-        Subscribe
-        <Icon name="arrowRight" size={15} />
+      <button className="btn btn--gold btn--sm" type="submit">عضویت<Icon name="arrowRight" size={15} />
       </button>
     </form>
   )

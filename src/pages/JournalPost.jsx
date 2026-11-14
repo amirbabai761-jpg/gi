@@ -10,11 +10,9 @@ export default function JournalPost() {
   if (!article) {
     return (
       <div className="container section empty-page">
-        <p className="eyebrow">Not found</p>
-        <h1 className="page-title">That story is not here</h1>
-        <Link className="btn btn--gold" to="/journal">
-          Back to the journal
-        </Link>
+        <p className="eyebrow">یافت نشد</p>
+        <h1 className="page-title">آن داستان اینجا نیست</h1>
+        <Link className="btn btn--gold" to="/journal">بازگشت به ژورنال</Link>
       </div>
     )
   }
@@ -25,8 +23,7 @@ export default function JournalPost() {
     <article className="post">
       <div className="container post__head">
         <Link className="text-btn post__back" to="/journal">
-          <Icon name="arrowLeft" size={15} /> The Journal
-        </Link>
+          <Icon name="arrowLeft" size={15} />ژورنال</Link>
         <p className="eyebrow">{article.category}</p>
         <h1 className="page-title page-title--lg">{article.title}</h1>
         <p className="post__meta">
@@ -44,9 +41,7 @@ export default function JournalPost() {
           <React.Fragment key={i}>
             <p>{paragraph}</p>
             {i === 1 && (
-              <blockquote className="post__quote">
-                “A well-cut stone will outperform a larger one every time the light changes.”
-                <cite>— Atelier notes</cite>
+              <blockquote className="post__quote">«سنگی که خوب تراش خورده باشد، هر بار که نور عوض شود از سنگی بزرگ‌تر جلو می‌زند.»<cite>— یادداشت‌های آتلیه</cite>
               </blockquote>
             )}
           </React.Fragment>
@@ -55,12 +50,10 @@ export default function JournalPost() {
         <div className="post__foot">
           <div className="post__tags">
             <span className="chip">{article.category}</span>
-            <span className="chip">Fine jewelry</span>
+            <span className="chip">جواهرات نفیس</span>
             <span className="chip">Maison Lumière</span>
           </div>
-          <Link className="btn btn--outline btn--sm" to="/shop">
-            Shop the collection
-            <Icon name="arrowRight" size={15} />
+          <Link className="btn btn--outline btn--sm" to="/shop">خرید مجموعه<Icon name="arrowRight" size={15} />
           </Link>
         </div>
       </div>
@@ -68,8 +61,8 @@ export default function JournalPost() {
       <div className="container post__more">
         <div className="section-head section-head--left">
           <div>
-            <p className="eyebrow">Continue reading</p>
-            <h2 className="section-title section-title--sm">More from the Journal</h2>
+            <p className="eyebrow">ادامهٔ خواندن</p>
+            <h2 className="section-title section-title--sm">بیشتر از ژورنال</h2>
           </div>
         </div>
         <div className="journal-grid journal-grid--three">

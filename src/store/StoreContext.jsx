@@ -120,7 +120,7 @@ export function StoreProvider({ children }) {
             size: options.size || (product.sizes ? product.sizes[0] : ''),
           },
         })
-        notify(`${product.name} added to your bag`, 'success')
+        notify(`${product.name} به کیف افزوده شد`, 'success')
       },
       updateQty: (key, qty) => dispatch({ type: 'update-qty', key, qty }),
       removeLine: (key) => dispatch({ type: 'remove-line', key }),
@@ -128,7 +128,7 @@ export function StoreProvider({ children }) {
       toggleWishlist: (product) => {
         const already = state.wishlist.includes(product.id)
         dispatch({ type: 'toggle-wishlist', id: product.id })
-        notify(already ? `${product.name} removed from wishlist` : `${product.name} saved to wishlist`)
+        notify(already ? `${product.name} از علاقه‌مندی‌ها حذف شد` : `${product.name} به علاقه‌مندی‌ها افزوده شد`)
       },
       isWishlisted: (id) => state.wishlist.includes(id),
       notify,

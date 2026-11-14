@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
 
-export default function SectionHead({ eyebrow, title, copy, link, linkLabel = 'View all', align = 'left' }) {
+export default function SectionHead({ eyebrow, title, copy, link, linkLabel = 'دیدن همه', align = 'left' }) {
   return (
     <div className={`section-head section-head--${align}`}>
       <div>

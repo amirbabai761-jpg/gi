@@ -45,12 +45,12 @@ export default function TestimonialCarousel() {
     <section className="section testimonials">
       <div className="container">
         <div className="testimonials__head">
-          <SectionHead eyebrow="Kind words" title="Treasured by Our Clients" />
+          <SectionHead eyebrow="سخن مشتریان" title="سرمایهٔ مشتریان ما" />
           <div className="carousel-nav">
-            <button onClick={() => go(-1)} disabled={current === 0} aria-label="Previous testimonial">
+            <button onClick={() => go(-1)} disabled={current === 0} aria-label="نظر پیشین">
               <Icon name="arrowLeft" size={17} />
             </button>
-            <button onClick={() => go(1)} disabled={current >= maxIndex} aria-label="Next testimonial">
+            <button onClick={() => go(1)} disabled={current >= maxIndex} aria-label="نظر بعدی">
               <Icon name="arrowRight" size={17} />
             </button>
           </div>
@@ -81,7 +81,7 @@ export default function TestimonialCarousel() {
           </ul>
         </div>
 
-        <div className="carousel-dots" role="tablist" aria-label="Testimonial pages">
+        <div className="carousel-dots" role="tablist" aria-label="صفحه‌های نظر">
           {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}

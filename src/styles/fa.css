@@ -1,0 +1,235 @@
+/* ============================================================
+   فارسی — typography, RTL mirroring and the transparent header
+   Loaded last so it may extend the earlier stylesheets.
+   ============================================================ */
+
+:root {
+  /* Latin keeps the original faces; Persian falls back to the
+     Vazirmatn / Naskh pair that ships with the storefront. */
+  --serif: 'Cormorant Garamond', 'Noto Naskh Arabic', 'Vazirmatn', Georgia, serif;
+  --sans: 'Jost', 'Vazirmatn', 'Noto Naskh Arabic', Arial, sans-serif;
+}
+
+body {
+  line-height: 1.85;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.3;
+}
+
+.hero h1 {
+  line-height: 1.15;
+}
+
+.hero h1 em {
+  font-style: normal;
+}
+
+/* Persian does not use wide Latin tracking on labels. */
+.eyebrow,
+.announcement__inner,
+.brand__sub,
+.nav-link,
+.btn,
+.fineprint,
+.section-head__link,
+.text-btn {
+  letter-spacing: 0.04em;
+}
+
+/* ---------- transparent header over the hero ---------- */
+.site-header.is-transparent {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  color: var(--ivory);
+}
+
+.site-header.is-transparent .announcement {
+  background: transparent;
+  border-bottom-color: rgba(250, 247, 242, 0.2);
+}
+
+.site-header.is-transparent .announcement__inner {
+  color: rgba(250, 247, 242, 0.78);
+  border-bottom-color: rgba(250, 247, 242, 0.2);
+}
+
+.site-header.is-transparent .announcement__note {
+  color: rgba(250, 247, 242, 0.55);
+}
+
+.site-header.is-transparent .announcement__link {
+  border-bottom-color: rgba(250, 247, 242, 0.45);
+}
+
+.site-header.is-transparent .nav-shell {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom-color: rgba(250, 247, 242, 0.18);
+}
+
+.site-header.is-transparent .brand__mark {
+  border-color: rgba(216, 192, 154, 0.7);
+  color: var(--gold-soft);
+}
+
+.site-header.is-transparent .brand__name {
+  color: var(--ivory);
+}
+
+.site-header.is-transparent .brand__sub {
+  color: rgba(250, 247, 242, 0.6);
+}
+
+.site-header.is-transparent .nav-link {
+  color: rgba(250, 247, 242, 0.8);
+}
+
+.site-header.is-transparent .nav-link:hover,
+.site-header.is-transparent .nav-link.active,
+.site-header.is-transparent .nav-link.is-active {
+  color: var(--ivory);
+}
+
+.site-header.is-transparent .nav-link::after {
+  background: var(--gold-soft);
+}
+
+.site-header.is-transparent .icon-btn {
+  color: var(--ivory);
+}
+
+.site-header.is-transparent .icon-btn .count {
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+
+/* The fixed header no longer takes space in the flow, so the hero
+   needs to clear it on its own. */
+.site-header.is-transparent + main .hero__inner {
+  padding-top: clamp(150px, 19vh, 210px);
+}
+
+@media (max-width: 900px) {
+  .site-header.is-transparent + main .hero__inner {
+    padding-top: 132px;
+  }
+}
+
+/* ---------- RTL mirroring ---------- */
+html[dir='rtl'] .hero__scrim {
+  background:
+    linear-gradient(270deg, rgba(22, 18, 14, 0.82) 0%, rgba(22, 18, 14, 0.55) 42%, rgba(22, 18, 14, 0.05) 78%),
+    linear-gradient(0deg, rgba(22, 18, 14, 0.55) 0%, rgba(22, 18, 14, 0) 45%);
+}
+
+html[dir='rtl'] .hero h1 em {
+  padding-inline-start: 0.06em;
+}
+
+html[dir='rtl'] .hero__scroll {
+  right: auto;
+  left: var(--gutter);
+}
+
+html[dir='rtl'] .nav-consult {
+  margin-left: 0;
+  margin-inline-start: 10px;
+}
+
+html[dir='rtl'] .service {
+  border-left: 0;
+  border-right: 1px solid var(--line);
+}
+
+html[dir='rtl'] .service:first-child {
+  border-right: 0;
+}
+
+@media (max-width: 900px) {
+  html[dir='rtl'] .service {
+    border-right: 0;
+  }
+}
+
+html[dir='rtl'] .legal__nav {
+  border-left: 0;
+  border-right: 1px solid var(--line);
+}
+
+html[dir='rtl'] .legal__nav a {
+  border-left: 0;
+  border-right: 1px solid transparent;
+}
+
+html[dir='rtl'] .legal__nav a.is-active {
+  border-right-color: var(--gold);
+}
+
+html[dir='rtl'] .post__quote {
+  border-left: 0;
+  border-right: 1px solid var(--gold);
+}
+
+html[dir='rtl'] .size-table th,
+html[dir='rtl'] .accordion__trigger,
+html[dir='rtl'] .filter-group button,
+html[dir='rtl'] .order-confirm__meta,
+html[dir='rtl'] .order-confirm__lines,
+html[dir='rtl'] .order-confirm__steps {
+  text-align: right;
+}
+
+html[dir='rtl'] .sort-select {
+  margin-left: 0;
+  margin-inline-start: auto;
+}
+
+html[dir='rtl'] .sort-select svg {
+  right: auto;
+  left: 10px;
+}
+
+html[dir='rtl'] .badge {
+  left: auto;
+  right: 14px;
+}
+
+html[dir='rtl'] .wish-btn {
+  right: auto;
+  left: 12px;
+}
+
+html[dir='rtl'] .overlay__close {
+  right: auto;
+  left: 14px;
+}
+
+html[dir='rtl'] .story__badge {
+  right: 16px;
+}
+
+html[dir='rtl'] .journal-card__meta span + span::before {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+html[dir='rtl'] .mega__feature span {
+  left: auto;
+  right: 16px;
+}
+
+html[dir='rtl'] .mega__feature svg {
+  right: auto;
+  left: 14px;
+}
+
+html[dir='rtl'] .skip-link {
+  left: auto;
+  right: 16px;
+}

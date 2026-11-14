@@ -1,29 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Icon from './Icon.jsx'
 import { categories, collections, getProduct, photo } from '../data/catalog.js'
 import { useStore } from '../store/StoreContext.jsx'
 
 const navItems = [
-  { label: 'New Arrivals', to: '/shop?sort=new' },
-  { label: 'Collections', mega: 'collections' },
-  { label: 'Jewelry', mega: 'jewelry' },
-  { label: 'Engagement & Bridal', to: '/shop?category=bridal' },
-  { label: 'Gifts', mega: 'gifts' },
-  { label: 'About Us', to: '/about' },
+  { label: 'تازه‌ها', to: '/shop?sort=new' },
+  { label: 'مجموعه‌ها', mega: 'collections' },
+  { label: 'جواهرات', mega: 'jewelry' },
+  { label: 'نامزدی و عروس', to: '/shop?category=bridal' },
+  { label: 'هدایا', mega: 'gifts' },
+  { label: 'دربارهٔ ما', to: '/about' },
 ]
 
 const giftEdits = [
-  { label: 'Under $1,000', to: '/shop?max=1000' },
-  { label: 'Under $2,500', to: '/shop?max=2500' },
-  { label: 'The Anniversary Edit', to: '/shop?collection=modern-heirlooms' },
-  { label: 'Pearl & Moonstone', to: '/shop?sort=new' },
-  { label: 'Gift Cards', to: '/gift-cards' },
+  { label: 'زیر ۱٬۰۰۰ دلار', to: '/shop?max=1000' },
+  { label: 'زیر ۲٬۵۰۰ دلار', to: '/shop?max=2500' },
+  { label: 'انتخاب سالگرد', to: '/shop?collection=modern-heirlooms' },
+  { label: 'مروارید و سنگ ماه', to: '/shop?sort=new' },
+  { label: 'کارت هدیه', to: '/gift-cards' },
 ]
 
 const announcements = [
-  'Complimentary insured shipping on all orders',
-  'Ethical luxury, beautifully crafted',
+  'ارسال بیمه‌شدهٔ رایگان برای همهٔ سفارش‌ها',
+  'لوکس اخلاقی، با ساخت بی‌نقص',
 ]
 
 export default function Header() {
@@ -32,6 +32,7 @@ export default function Header() {
   const [announcement, setAnnouncement] = useState(0)
   const closeTimer = useRef(null)
   const { cartCount, wishlist, openCart, openSearch, openMenu, openAccount } = useStore()
+  const { pathname } = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -61,7 +62,11 @@ export default function Header() {
   }
 
   return (
-    <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+    <header
+      className={`site-header ${scrolled ? 'is-scrolled' : ''} ${
+        pathname === '/' && !scrolled ? 'is-transparent' : ''
+      }`}
+    >
       <div className="announcement">
         <div className="container announcement__inner">
           <div className="announcement__messages" aria-live="off">
@@ -71,10 +76,8 @@ export default function Header() {
               </span>
             ))}
           </div>
-          <span className="announcement__note">Paris · Est. 1987</span>
-          <Link className="announcement__link" to="/about#appointment">
-            Book an appointment
-          </Link>
+          <span className="announcement__note">پاریس · از ۱۹۸۷</span>
+          <Link className="announcement__link" to="/about#appointment">رزرو وقت مشاوره</Link>
         </div>
       </div>
 
@@ -83,7 +86,7 @@ export default function Header() {
         onMouseLeave={scheduleClose}
       >
         <div className="container nav-inner">
-          <button className="icon-btn nav-burger" aria-label="Open menu" onClick={openMenu}>
+          <button className="icon-btn nav-burger" aria-label="باز کردن منو" onClick={openMenu}>
             <Icon name="menu" size={22} />
           </button>
 
@@ -93,11 +96,11 @@ export default function Header() {
             </span>
             <span className="brand__text">
               <span className="brand__name">Maison Lumière</span>
-              <span className="brand__sub">Fine Jewels</span>
+              <span className="brand__sub">جواهرات نفیس</span>
             </span>
           </Link>
 
-          <nav className="primary-nav" aria-label="Primary">
+          <nav className="primary-nav" aria-label="اصلی">
             <ul>
               {navItems.map((item) =>
                 item.mega ? (
@@ -126,10 +129,10 @@ export default function Header() {
           </nav>
 
           <div className="nav-actions">
-            <button className="icon-btn" aria-label="Search" onClick={openSearch}>
+            <button className="icon-btn" aria-label="جست‌وجو" onClick={openSearch}>
               <Icon name="search" size={19} />
             </button>
-            <button className="icon-btn icon-btn--hide-sm" aria-label="Account" onClick={openAccount}>
+            <button className="icon-btn icon-btn--hide-sm" aria-label="حساب کاربری" onClick={openAccount}>
               <Icon name="user" size={19} />
             </button>
             <Link className="icon-btn icon-btn--hide-sm" to="/wishlist" aria-label={`Wishlist, ${wishlist.length} items`}>
@@ -140,9 +143,7 @@ export default function Header() {
               <Icon name="bag" size={19} />
               {cartCount > 0 && <span className="count">{cartCount}</span>}
             </button>
-            <Link className="btn btn--gold btn--sm nav-consult" to="/about#appointment">
-              Private Consultation
-            </Link>
+            <Link className="btn btn--gold btn--sm nav-consult" to="/about#appointment">مشاورهٔ خصوصی</Link>
           </div>
         </div>
 
@@ -157,52 +158,52 @@ export default function Header() {
 function MegaPanel({ panel, onNavigate, onKeepOpen, onClose }) {
   const content = {
     jewelry: {
-      eyebrow: 'Shop by category',
+      eyebrow: 'خرید بر اساس دسته',
       links: categories.map((c) => ({ label: c.name, to: `/shop?category=${c.slug}` })),
       columns: [
         {
-          title: 'Metal & Stone',
+          title: 'فلز و سنگ',
           links: [
-            { label: 'Yellow Gold', to: '/shop?sort=price-asc' },
-            { label: 'White Gold', to: '/shop?sort=price-desc' },
-            { label: 'Pearl', to: '/shop?q=pearl' },
-            { label: 'Diamond', to: '/shop?q=diamond' },
+            { label: 'طلای زرد', to: '/shop?sort=price-asc' },
+            { label: 'طلای سفید', to: '/shop?sort=price-desc' },
+            { label: 'مروارید', to: '/shop?q=pearl' },
+            { label: 'الماس', to: '/shop?q=diamond' },
           ],
         },
       ],
-      feature: { image: '1599643478518-a784e5dc4c8f', label: 'Color of Elegance', to: '/shop?collection=color-of-elegance' },
+      feature: { image: '1599643478518-a784e5dc4c8f', label: 'رنگ ظرافت', to: '/shop?collection=color-of-elegance' },
     },
     collections: {
-      eyebrow: 'Our collections',
+      eyebrow: 'مجموعه‌های ما',
       links: collections.map((c) => ({ label: c.name, to: `/shop?collection=${c.slug}` })),
       columns: [
         {
-          title: 'Edits',
+          title: 'انتخاب‌ها',
           links: [
-            { label: 'New Arrivals', to: '/shop?sort=new' },
-            { label: 'Bestsellers', to: '/shop?sort=featured' },
-            { label: 'Limited Edition', to: '/shop?q=limited' },
-            { label: 'Bridal', to: '/shop?category=bridal' },
+            { label: 'تازه‌ها', to: '/shop?sort=new' },
+            { label: 'پرفروش‌ها', to: '/shop?sort=featured' },
+            { label: 'نسخهٔ محدود', to: '/shop?q=limited' },
+            { label: 'عروس', to: '/shop?category=bridal' },
           ],
         },
       ],
-      feature: { image: '1616837874254-8d5aaa63e273', label: 'Modern Heirlooms', to: '/shop?collection=modern-heirlooms' },
+      feature: { image: '1616837874254-8d5aaa63e273', label: 'یادگارهای مدرن', to: '/shop?collection=modern-heirlooms' },
     },
     gifts: {
-      eyebrow: 'The gift edit',
+      eyebrow: 'انتخاب هدیه',
       links: giftEdits,
       columns: [
         {
-          title: 'For someone special',
+          title: 'برای کسی خاص',
           links: [
-            { label: 'For Her', to: '/shop' },
-            { label: 'Anniversary', to: '/shop?collection=forever-begins-here' },
-            { label: 'Everyday Luxuries', to: '/shop?collection=everyday-essentials' },
-            { label: 'Signature Packaging', to: '/about#packaging' },
+            { label: 'برای او', to: '/shop' },
+            { label: 'سالگرد', to: '/shop?collection=forever-begins-here' },
+            { label: 'لوکس‌های روزمره', to: '/shop?collection=everyday-essentials' },
+            { label: 'بسته‌بندی امضا', to: '/about#packaging' },
           ],
         },
       ],
-      feature: { image: '1515562141207-7a88fb7ce338', label: 'Gift wrapping & notes', to: '/about#packaging' },
+      feature: { image: '1515562141207-7a88fb7ce338', label: 'کادوپیچ و یادداشت', to: '/about#packaging' },
     },
   }[panel]
 
@@ -247,7 +248,7 @@ function MegaPanel({ panel, onNavigate, onKeepOpen, onClose }) {
           <Link className="mega__product" to={`/product/${featured.id}`} onClick={onNavigate}>
             <img src={photo(featured.images[0], 320)} alt="" loading="lazy" />
             <span>
-              <em>Most loved</em>
+              <em>محبوب‌ترین</em>
               {featured.name}
             </span>
           </Link>

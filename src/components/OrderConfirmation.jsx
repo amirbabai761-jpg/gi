@@ -4,9 +4,9 @@ import Icon from './Icon.jsx'
 import { formatPrice } from '../data/catalog.js'
 
 const steps = [
-  { title: 'Order noted', copy: 'Your selection is recorded on this device.' },
-  { title: 'Prepared in the atelier', copy: 'Each piece is checked, polished and wrapped by hand.' },
-  { title: 'Insured delivery', copy: 'Tracked, signature required, complimentary worldwide.' },
+  { title: 'سفارش ثبت شد', copy: 'انتخاب شما روی همین دستگاه ثبت شده است.' },
+  { title: 'آماده‌سازی در آتلیه', copy: 'هر قطعه بازبینی، پولیش و با دست بسته‌بندی می‌شود.' },
+  { title: 'ارسال بیمه‌شده', copy: 'ردیابی‌پذیر، با امضای تحویل‌گیرنده و رایگان در سراسر جهان.' },
 ]
 
 export default function OrderConfirmation({ order }) {
@@ -20,24 +20,21 @@ export default function OrderConfirmation({ order }) {
       <div className="order-confirm__seal">
         <Icon name="check" size={26} stroke={1.1} />
       </div>
-      <p className="eyebrow">Order noted</p>
+      <p className="eyebrow">سفارش ثبت شد</p>
       <h1 className="page-title">Thank you{order.firstName ? `, ${order.firstName}` : ''}.</h1>
-      <p className="order-confirm__lede">
-        Your order is complete for this demonstration. No payment was taken and no confirmation email was
-        sent — but every step of the experience, from bag to delivery estimate, is exactly as it would be.
-      </p>
+      <p className="order-confirm__lede">سفارش شما در این نمایش کامل شد. پرداختی انجام نشد و ایمیلی ارسال نشده — اما همهٔ مراحل، از سبد خرید تا زمان تحویل، دقیقاً همان‌طور است که خواهد بود.</p>
 
       <div className="order-confirm__meta">
         <div>
-          <span>Order number</span>
+          <span>شمارهٔ سفارش</span>
           <strong>{order.number}</strong>
         </div>
         <div>
-          <span>Estimated arrival</span>
+          <span>زمان تقریبی تحویل</span>
           <strong>{eta}</strong>
         </div>
         <div>
-          <span>Total</span>
+          <span>مبلغ کل</span>
           <strong>{formatPrice(order.total)}</strong>
         </div>
       </div>
@@ -71,19 +68,12 @@ export default function OrderConfirmation({ order }) {
       </ol>
 
       <div className="order-confirm__actions">
-        <Link className="btn btn--gold" to="/shop">
-          Continue shopping
-          <Icon name="arrowRight" size={16} />
+        <Link className="btn btn--gold" to="/shop">ادامهٔ خرید<Icon name="arrowRight" size={16} />
         </Link>
-        <Link className="btn btn--outline" to="/journal">
-          Read the journal
-        </Link>
+        <Link className="btn btn--outline" to="/journal">خواندن ژورنال</Link>
       </div>
 
-      <p className="fineprint">
-        Demonstration storefront — cart contents are saved on this device only. No order has been
-        transmitted and no card was charged.
-      </p>
+      <p className="fineprint">فروشگاه نمایشی — محتوای سبد فقط روی همین دستگاه ذخیره می‌شود. هیچ سفارشی ارسال و هیچ کارتی برداشت نشده است.</p>
     </div>
   )
 }

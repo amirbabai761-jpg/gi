@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="hero__media">
         <img
           src={photo(IMAGES.hero, 2000)}
-          alt="Model wearing layered fine gold necklaces and rings"
+          alt="مانکنی با زنجیرهای نازک طلا و انگشتر"
           loading="eager"
         />
         <div className="hero__scrim" aria-hidden="true" />
@@ -17,38 +17,29 @@ export default function Hero() {
 
       <div className="container hero__inner">
         <div className="hero__content">
-          <p className="eyebrow eyebrow--light">The Signature Collection</p>
-          <h1>
-            Timeless
-            <em>Brilliance</em>
+          <p className="eyebrow eyebrow--light">مجموعهٔ امضای مزون</p>
+          <h1>درخششی<em>بی‌زمان</em>
           </h1>
-          <p className="hero__copy">
-            Exquisite designs, masterfully crafted for life's most meaningful moments. Set in
-            recycled 18k gold, and made to be worn every single day.
-          </p>
+          <p className="hero__copy">طرح‌هایی بی‌نقص، استادانه ساخته‌شده برای مهم‌ترین لحظه‌های زندگی. در طلای بازیافتی ۱۸ عیار، برای پوشیدن در هر روز.</p>
           <div className="hero__actions">
-            <Link className="btn btn--gold" to="/shop?sort=featured">
-              Discover Signature Pieces
-              <Icon name="arrowRight" size={17} />
+            <Link className="btn btn--gold" to="/shop?sort=featured">کشف قطعه‌های امضای مزون<Icon name="arrowRight" size={17} />
             </Link>
-            <Link className="btn btn--ghost" to="/shop">
-              Explore Collections
-            </Link>
+            <Link className="btn btn--ghost" to="/shop">کشف مجموعه‌ها</Link>
           </div>
           <ul className="hero__trust">
-            <li><Icon name="diamond" size={15} /> Certified diamonds</li>
-            <li><Icon name="globe" size={15} /> Insured worldwide delivery</li>
-            <li><Icon name="refresh" size={15} /> 30-day returns</li>
+            <li><Icon name="diamond" size={15} />الماس‌های گواهی‌دار</li>
+            <li><Icon name="globe" size={15} />ارسال بیمه‌شده به سراسر جهان</li>
+            <li><Icon name="refresh" size={15} />۳۰ روز مهلت مرجوعی</li>
           </ul>
         </div>
 
         <aside className="hero__aside">
-          <span className="hero__seal">Est. 1987 · Paris</span>
+          <span className="hero__seal">از ۱۹۸۷ · پاریس</span>
         </aside>
       </div>
 
       <div className="hero__scroll">
-        <span>Scroll to explore</span>
+        <span>برای کشف، پایین بروید</span>
         <span className="hero__scroll-line" aria-hidden="true" />
       </div>
     </section>

@@ -8,8 +8,8 @@ export default function CategoryStrip() {
     <section className="section categories">
       <div className="container">
         <div className="categories__head">
-          <p className="eyebrow">Explore</p>
-          <h2 className="section-title section-title--sm">Shop by Category</h2>
+          <p className="eyebrow">کشف</p>
+          <h2 className="section-title section-title--sm">خرید بر اساس دسته</h2>
         </div>
         <ul className="category-strip">
           {categories.map((category) => (

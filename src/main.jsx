@@ -11,6 +11,7 @@ import './styles/pages.css'
 import './styles/gift.css'
 import './styles/legal.css'
 import './styles/overlays.css'
+import './styles/fa.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

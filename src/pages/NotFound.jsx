@@ -6,16 +6,12 @@ export default function NotFound() {
   return (
     <div className="container empty-page notfound">
       <p className="eyebrow">404</p>
-      <h1 className="page-title">This page has slipped its setting</h1>
-      <p>The piece or page you were looking for is no longer here. Let us guide you back.</p>
+      <h1 className="page-title">این صفحه از جای خود درآمده</h1>
+      <p>قطعه یا صفحه‌ای که می‌خواستید دیگر اینجا نیست. بگذارید شما را بازگردانیم.</p>
       <div className="notfound__actions">
-        <Link className="btn btn--gold" to="/shop">
-          Explore the collection
-          <Icon name="arrowRight" size={16} />
+        <Link className="btn btn--gold" to="/shop">کشف مجموعه<Icon name="arrowRight" size={16} />
         </Link>
-        <Link className="btn btn--outline" to="/">
-          Return home
-        </Link>
+        <Link className="btn btn--outline" to="/">بازگشت به خانه</Link>
       </div>
     </div>
   )

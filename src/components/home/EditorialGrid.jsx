@@ -9,11 +9,11 @@ export default function EditorialGrid() {
     <section className="section editorials">
       <div className="container">
         <SectionHead
-          eyebrow="Curated edits"
-          title="Stories in Gold & Stone"
-          copy="Four collections, each with its own temperament — from sculptural heirlooms to the quiet everyday."
+          eyebrow="انتخاب‌های گردآوری‌شده"
+          title="روایت‌هایی در طلا و سنگ"
+          copy="چهار مجموعه، هر یک با خلق‌وخوی خود — از یادگارهای مجسمه‌وار تا آرامش هر روز."
           link="/shop"
-          linkLabel="View all collections"
+          linkLabel="دیدن همهٔ مجموعه‌ها"
         />
         <div className="editorial-grid">
           {collections.map((collection) => (
@@ -21,12 +21,10 @@ export default function EditorialGrid() {
               <img src={photo(collection.image, 1200)} alt="" loading="lazy" />
               <span className="editorial-card__scrim" aria-hidden="true" />
               <span className="editorial-card__body">
-                <span className="eyebrow eyebrow--light">Collection</span>
+                <span className="eyebrow eyebrow--light">مجموعه</span>
                 <span className="editorial-card__title">{collection.name}</span>
                 <span className="editorial-card__copy">{collection.copy}</span>
-                <span className="editorial-card__cta">
-                  Explore
-                  <Icon name="arrowRight" size={15} />
+                <span className="editorial-card__cta">کشف<Icon name="arrowRight" size={15} />
                 </span>
               </span>
             </Link>

@@ -9,28 +9,26 @@ export default function AccountPanel() {
   const [email, setEmail] = useState('')
 
   return (
-    <Overlay open={ui.account} onClose={() => closeUi('account')} label="Account">
+    <Overlay open={ui.account} onClose={() => closeUi('account')} label="حساب کاربری">
       <div className="panel-head">
         <div>
-          <p className="eyebrow">Private client</p>
-          <h2 className="panel-title">Your Account</h2>
+          <p className="eyebrow">مشتری خصوصی</p>
+          <h2 className="panel-title">حساب کاربری شما</h2>
         </div>
       </div>
 
       <div className="account">
-        <p className="account__lede">
-          Sign in to follow your commissions, save pieces to your wishlist and be first to see new collections.
-        </p>
+        <p className="account__lede">وارد شوید تا سفارش‌های اختصاصی را پیگیری کنید، قطعه‌ها را در علاقه‌مندی‌ها ذخیره کنید و پیش از همه مجموعه‌های تازه را ببینید.</p>
         <form
           className="account__form"
           onSubmit={(e) => {
             e.preventDefault()
-            notify('This is a demo — account sign-in is not connected in this preview.')
+            notify('این نسخه نمایشی است — ورود به حساب در این پیش‌نمایش متصل نیست.')
             closeUi('account')
           }}
         >
           <label className="field">
-            <span>Email address</span>
+            <span>نشانی ایمیل</span>
             <input
               type="email"
               required
@@ -39,32 +37,24 @@ export default function AccountPanel() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
-          <button className="btn btn--gold btn--block" type="submit">
-            Continue
-            <Icon name="arrowRight" size={16} />
+          <button className="btn btn--gold btn--block" type="submit">ادامه<Icon name="arrowRight" size={16} />
           </button>
         </form>
-        <p className="account__note">
-          This is a preview storefront — sign-in is not connected and no account is created.
-        </p>
+        <p className="account__note">این یک فروشگاه نمایشی است — ورود به حساب متصل نیست و حسابی ساخته نمی‌شود.</p>
 
         <div className="account__divider">
-          <span>Or browse as a guest</span>
+          <span>یا به‌عنوان مهمان بگردید</span>
         </div>
 
         <Link to="/wishlist" className="account__link" onClick={() => closeUi('account')}>
           <Icon name="heart" size={18} />
-          <span>
-            Your wishlist
-            <em>{wishlist.length} saved {wishlist.length === 1 ? 'piece' : 'pieces'}</em>
+          <span>علاقه‌مندی‌های شما<em>{wishlist.length} saved {wishlist.length === 1 ? 'piece' : 'pieces'}</em>
           </span>
           <Icon name="arrowRight" size={16} />
         </Link>
         <Link to="/about#appointment" className="account__link" onClick={() => closeUi('account')}>
           <Icon name="sparkle" size={18} />
-          <span>
-            Book a private consultation
-            <em>In the atelier or by video</em>
+          <span>رزرو مشاورهٔ خصوصی<em>در آتلیه یا از طریق ویدئو</em>
           </span>
           <Icon name="arrowRight" size={16} />
         </Link>

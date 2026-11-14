@@ -32,9 +32,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <StoreProvider>
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
+      <a className="skip-link" href="#main">رفتن به محتوا</a>
       <ScrollToTop />
       <Header />
       <main id="main">

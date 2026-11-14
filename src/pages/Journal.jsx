@@ -7,18 +7,16 @@ export default function Journal() {
   const [lead, ...rest] = articles
   return (
     <div className="container journal-page">
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
+      <nav className="breadcrumb" aria-label="مسیر صفحه">
+        <Link to="/">خانه</Link>
         <span>/</span>
-        <span>The Journal</span>
+        <span>ژورنال</span>
       </nav>
 
       <header className="journal-page__head">
-        <p className="eyebrow">The journal</p>
-        <h1 className="page-title">Inspiration & Stories</h1>
-        <p className="shop__desc">
-          Notes from the atelier — on stones, styling, craft and the pieces we keep for a lifetime.
-        </p>
+        <p className="eyebrow">ژورنال</p>
+        <h1 className="page-title">الهام و روایت‌ها</h1>
+        <p className="shop__desc">یادداشت‌هایی از آتلیه — دربارهٔ سنگ‌ها، استایل، ساخت و قطعه‌هایی که یک عمر نگه می‌داریم.</p>
       </header>
 
       <Link className="journal-lead" to={`/journal/${lead.slug}`}>
@@ -32,9 +30,7 @@ export default function Journal() {
           </p>
           <h2>{lead.title}</h2>
           <p>{lead.excerpt}</p>
-          <span className="link-arrow">
-            Read the story
-            <Icon name="arrowRight" size={16} />
+          <span className="link-arrow">خواندن داستان<Icon name="arrowRight" size={16} />
           </span>
         </div>
       </Link>
@@ -53,9 +49,7 @@ export default function Journal() {
               <Link to={`/journal/${article.slug}`}>{article.title}</Link>
             </h3>
             <p className="journal-card__excerpt">{article.excerpt}</p>
-            <Link className="link-arrow link-arrow--sm" to={`/journal/${article.slug}`}>
-              Read more
-              <Icon name="arrowRight" size={15} />
+            <Link className="link-arrow link-arrow--sm" to={`/journal/${article.slug}`}>بیشتر بخوانید<Icon name="arrowRight" size={15} />
             </Link>
           </article>
         ))}

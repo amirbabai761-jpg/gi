@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
-import { formatPrice, photo } from '../data/catalog.js'
+import { faNumber, formatPrice, photo } from '../data/catalog.js'
 import { Stars } from './QuickView.jsx'
 import { useStore } from '../store/StoreContext.jsx'
 
@@ -39,9 +39,7 @@ export default function ProductCard({ product, priority = false }) {
         </button>
 
         <div className="product-card__tools">
-          <button className="tool-btn" onClick={() => openQuickView(product.id)}>
-            Quick view
-          </button>
+          <button className="tool-btn" onClick={() => openQuickView(product.id)}>نمای سریع</button>
           <button
             className="tool-btn tool-btn--icon"
             onClick={() => addToCart(product)}
@@ -62,7 +60,7 @@ export default function ProductCard({ product, priority = false }) {
         <p className="product-card__metal">{product.metal}</p>
         <div className="product-card__rating">
           <Stars value={product.rating} />
-          <span>{product.reviews}</span>
+          <span>{faNumber(product.reviews)}</span>
         </div>
       </div>
     </article>

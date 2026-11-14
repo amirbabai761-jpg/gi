@@ -63,7 +63,7 @@ export default function Overlay({ open, onClose, variant = 'drawer-right', label
         aria-label={label}
         ref={panelRef}
       >
-        <button className="overlay__close" onClick={onClose} aria-label="Close" data-skip-focus>
+        <button className="overlay__close" onClick={onClose} aria-label="بستن" data-skip-focus>
           <Icon name="close" size={22} />
         </button>
         {children}

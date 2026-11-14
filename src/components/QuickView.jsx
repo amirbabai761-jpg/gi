@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Overlay from './Overlay.jsx'
 import Icon from './Icon.jsx'
-import { formatPrice, getProduct, photo } from '../data/catalog.js'
+import { faNumber, formatPrice, getProduct, photo } from '../data/catalog.js'
 import { useStore } from '../store/StoreContext.jsx'
 
 export default function QuickView() {
@@ -29,7 +29,7 @@ export default function QuickView() {
         reset()
       }}
       variant="modal"
-      label={product ? `${product.name} quick view` : 'Quick view'}
+      label={product ? `${product.name} quick view` : 'نمای سریع'}
       className="quickview-overlay"
     >
       {product && (
@@ -44,14 +44,14 @@ export default function QuickView() {
             <div className="rating">
               <Stars value={product.rating} />
               <span>
-                {product.rating} · {product.reviews} reviews
+                {faNumber(product.rating)} · {faNumber(product.reviews)} نظر
               </span>
             </div>
             <p className="quickview__price">{formatPrice(product.price)}</p>
             <p className="quickview__blurb">{product.blurb}</p>
 
             <div className="option-group">
-              <p className="option-label">Metal</p>
+              <p className="option-label">فلز</p>
               <div className="chip-row">
                 {product.metals.map((m) => (
                   <button
@@ -67,7 +67,7 @@ export default function QuickView() {
 
             {product.sizes && (
               <div className="option-group">
-                <p className="option-label">{product.category === 'rings' || product.category === 'bridal' ? 'Ring size' : 'Length'}</p>
+                <p className="option-label">{product.category === 'rings' || product.category === 'bridal' ? 'سایز انگشتر' : 'طول'}</p>
                 <div className="chip-row">
                   {product.sizes.slice(0, 6).map((s) => (
                     <button
@@ -84,11 +84,11 @@ export default function QuickView() {
 
             <div className="quickview__actions">
               <div className="stepper">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">
+                <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="کاهش تعداد">
                   <Icon name="minus" size={13} />
                 </button>
                 <span>{qty}</span>
-                <button onClick={() => setQty(Math.min(9, qty + 1))} aria-label="Increase quantity">
+                <button onClick={() => setQty(Math.min(9, qty + 1))} aria-label="افزایش تعداد">
                   <Icon name="plus" size={13} />
                 </button>
               </div>
@@ -100,22 +100,18 @@ export default function QuickView() {
                   openCart()
                   reset()
                 }}
-              >
-                Add to bag
-              </button>
+              >افزودن به کیف</button>
               <button
                 className={`icon-btn icon-btn--outline ${isWishlisted(product.id) ? 'is-active' : ''}`}
                 onClick={() => toggleWishlist(product)}
-                aria-label="Save to wishlist"
+                aria-label="افزودن به علاقه‌مندی‌ها"
                 aria-pressed={isWishlisted(product.id)}
               >
                 <Icon name="heart" size={18} filled={isWishlisted(product.id)} />
               </button>
             </div>
 
-            <Link className="text-btn quickview__link" to={`/product/${product.id}`} onClick={() => closeUi('quickView')}>
-              View full details
-              <Icon name="arrowRight" size={15} />
+            <Link className="text-btn quickview__link" to={`/product/${product.id}`} onClick={() => closeUi('quickView')}>مشاهدهٔ جزئیات کامل<Icon name="arrowRight" size={15} />
             </Link>
           </div>
         </div>

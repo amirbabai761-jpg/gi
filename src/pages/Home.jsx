@@ -36,11 +36,11 @@ export default function Home() {
       <section className="section featured">
         <div className="container">
           <SectionHead
-            eyebrow="Our signature selection"
-            title="Loved Most"
-            copy="The pieces our clients return for — and the ones they never take off."
+            eyebrow="انتخاب امضای ما"
+            title="محبوب‌ترین‌ها"
+            copy="قطعه‌هایی که مشتریان ما برایشان بازمی‌گردند — و دیگر از دستشان درنمی‌آورند."
             link="/shop?sort=featured"
-            linkLabel="View all bestsellers"
+            linkLabel="دیدن همهٔ پرفروش‌ها"
           />
           <div className="product-grid">
             {homePicks.map((product, i) => (
@@ -49,12 +49,8 @@ export default function Home() {
           </div>
           <div className="featured__foot">
             <p>
-              <Icon name="sparkle" size={16} />
-              Complimentary engraving, gift wrapping and insured delivery on every order.
-            </p>
-            <Link className="btn btn--outline" to="/shop">
-              Shop the full collection
-              <Icon name="arrowRight" size={16} />
+              <Icon name="sparkle" size={16} />حکاکی، کادوپیچ و ارسال بیمه‌شدهٔ رایگان برای همهٔ سفارش‌ها.</p>
+            <Link className="btn btn--outline" to="/shop">خرید همهٔ مجموعه<Icon name="arrowRight" size={16} />
             </Link>
           </div>
         </div>

@@ -8,56 +8,47 @@ export default function BrandStory() {
     <section className="section story" id="craft">
       <div className="container story__inner">
         <div className="story__media">
-          <img src={photo(IMAGES.artisan, 1200)} alt="A goldsmith finishing a gold ring at the bench" loading="lazy" />
+          <img src={photo(IMAGES.artisan, 1200)} alt="زرگری در حال پرداخت انگشتر طلا بر میز کار" loading="lazy" />
           <div className="story__badge">
             <span className="story__badge-num">38</span>
-            <span>Years at the bench</span>
+            <span>سال‌ها بر میز کار</span>
           </div>
         </div>
 
         <div className="story__body">
-          <p className="eyebrow">Crafted to be cherished</p>
-          <h2 className="section-title">The Beauty Behind Every Detail</h2>
-          <p className="story__lede">
-            Every Maison Lumière piece begins as a drawing and passes through four pairs of hands before
-            it ever reaches yours.
-          </p>
-          <p>
-            We work in recycled 18k gold and traceable stones, chosen for the way they behave in light
-            rather than for their size on paper. Settings are cut by hand, claws are shaped under a
-            loupe, and each surface is polished until the reflection becomes continuous.
-          </p>
+          <p className="eyebrow">ساخته‌شده برای ماندن</p>
+          <h2 className="section-title">زیبایی در پس هر جزئیات</h2>
+          <p className="story__lede">هر قطعهٔ مزون لومیر با یک طرح آغاز می‌شود و پیش از رسیدن به شما از چهار جفت دست می‌گذرد.</p>
+          <p>ما با طلای بازیافتی ۱۸ عیار و سنگ‌های قابل ردیابی کار می‌کنیم؛ سنگ‌هایی که برای رفتارشان در نور انتخاب می‌شوند، نه برای اندازه‌شان روی کاغذ. نگین‌بندی‌ها با دست بریده می‌شوند، چنگک‌ها زیر ذره‌بین شکل می‌گیرند و هر سطح چنان پولیش می‌شود که بازتاب پیوسته شود.</p>
 
           <ul className="story__values">
             <li>
               <span className="value-icon"><Icon name="diamond" size={19} /></span>
               <div>
-                <strong>Ethically sourced</strong>
-                <p>Traceable stones and recycled gold, without exception.</p>
+                <strong>تأمین اخلاقی</strong>
+                <p>سنگ‌های قابل ردیابی و طلای بازیافتی، بدون استثنا.</p>
               </div>
             </li>
             <li>
               <span className="value-icon"><Icon name="scissors" size={19} /></span>
               <div>
-                <strong>Handcrafted</strong>
-                <p>Bench-made in our Paris atelier by nine goldsmiths.</p>
+                <strong>دست‌ساز</strong>
+                <p>ساخته‌شده بر میز کار آتلیهٔ پاریس به دست نه زرگر.</p>
               </div>
             </li>
             <li>
               <span className="value-icon"><Icon name="sparkle" size={19} /></span>
               <div>
-                <strong>Heirloom quality</strong>
-                <p>Lifetime servicing, resizing and restoration included.</p>
+                <strong>کیفیت یادگاری</strong>
+                <p>سرویس، تغییر اندازه و بازسازی مادام‌العمر شامل می‌شود.</p>
               </div>
             </li>
           </ul>
 
           <div className="story__foot">
-            <Link className="btn btn--outline" to="/about">
-              Our craftsmanship
-              <Icon name="arrowRight" size={16} />
+            <Link className="btn btn--outline" to="/about">هنر ساخت ما<Icon name="arrowRight" size={16} />
             </Link>
-            <p className="story__signature">— Élodie Marchand, Creative Director</p>
+            <p className="story__signature">— الودی مارشان، مدیر خلاقیت</p>
           </div>
         </div>
       </div>

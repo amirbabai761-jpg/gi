@@ -14,7 +14,7 @@ export default function ToastStack() {
             <Icon name={toast.tone === 'success' ? 'check' : 'sparkle'} size={15} stroke={1.4} />
           </span>
           <p>{toast.message}</p>
-          <button onClick={() => dismissToast(toast.id)} aria-label="Dismiss notification">
+          <button onClick={() => dismissToast(toast.id)} aria-label="بستن اعلان">
             <Icon name="close" size={14} />
           </button>
         </div>

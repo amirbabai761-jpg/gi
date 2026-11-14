@@ -4,36 +4,39 @@ import Icon from '../components/Icon.jsx'
 import ProductCard from '../components/ProductCard.jsx'
 import SectionHead from '../components/SectionHead.jsx'
 import { Stars } from '../components/QuickView.jsx'
-import { formatPrice, getProduct, photo, products } from '../data/catalog.js'
+import { categories, faNumber, formatPrice, getProduct, photo, products } from '../data/catalog.js'
 import { useStore } from '../store/StoreContext.jsx'
 
 const reviewerPool = [
   {
-    name: 'Isabelle R.',
-    date: 'Verified purchase · October 2026',
+    name: 'ایزابل ر.',
+    date: 'خرید تأییدشده · اکتبر ۲۰۲۶',
     rating: 5,
-    title: 'Even finer in person',
-    body: 'The finish is extraordinary — the setting sits low enough to wear every day and the stone still catches light across a room. The packaging arrived immaculate.',
+    title: 'از نزدیک حتی ظریف‌تر',
+    body: 'پرداخت بی‌نظیر است — نگین‌بندی آن‌قدر پایین می‌نشیند که هر روز بتوان پوشید و سنگ هنوز از آن سوی اتاق نور می‌گیرد. بسته‌بندی بی‌عیب رسید.',
   },
   {
-    name: 'Daniel K.',
-    date: 'Verified purchase · September 2026',
+    name: 'دانیل ک.',
+    date: 'خرید تأییدشده · سپتامبر ۲۰۲۶',
     rating: 5,
-    title: 'Bought it as an anniversary gift',
-    body: 'My wife has not taken it off. The team helped me choose the metal over video and the sizing was perfect. Delivery was insured and arrived two days early.',
+    title: 'به‌عنوان هدیهٔ سالگرد خریدم',
+    body: 'همسرم آن را درنیاورده است. تیم در انتخاب فلز از طریق ویدئو کمکم کرد و اندازه دقیقاً درست بود. ارسال بیمه شد و دو روز زودتر رسید.',
   },
   {
-    name: 'Priya S.',
-    date: 'Verified purchase · August 2026',
+    name: 'پریا س.',
+    date: 'خرید تأییدشده · اوت ۲۰۲۶',
     rating: 4,
-    title: 'Beautiful, slightly smaller than expected',
-    body: 'The craftsmanship is exactly what I hoped for from the photographs. It reads a little finer in person, which I now prefer — it layers beautifully.',
+    title: 'زیبا، کمی کوچک‌تر از انتظار',
+    body: 'هنر ساخت دقیقاً همان است که از عکس‌ها انتظار داشتم. از نزدیک کمی ظریف‌تر دیده می‌شود که حالا بیشتر دوستش دارم — در لایه‌ها زیبا می‌نشیند.',
   },
 ]
 
 export default function ProductDetail() {
   const { id } = useParams()
   const product = getProduct(id)
+  const categoryName = product
+    ? categories.find((c) => c.slug === product.category)?.name || product.category
+    : ''
   const { addToCart, toggleWishlist, isWishlisted } = useStore()
 
   const [activeImage, setActiveImage] = useState(0)
@@ -53,12 +56,10 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className="container section empty-page">
-        <p className="eyebrow">Not found</p>
-        <h1 className="page-title">This piece has moved</h1>
-        <p>It may have sold out or been archived. Explore the current collection instead.</p>
-        <Link className="btn btn--gold" to="/shop">
-          View the collection
-        </Link>
+        <p className="eyebrow">یافت نشد</p>
+        <h1 className="page-title">این قطعه جابه‌جا شده</h1>
+        <p>شاید فروش رفته یا بایگانی شده باشد. مجموعهٔ کنونی را ببینید.</p>
+        <Link className="btn btn--gold" to="/shop">دیدن مجموعه</Link>
       </div>
     )
   }
@@ -69,10 +70,10 @@ export default function ProductDetail() {
   return (
     <div className="pdp">
       <div className="container">
-        <nav className="breadcrumb" aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
+        <nav className="breadcrumb" aria-label="مسیر صفحه">
+          <Link to="/">خانه</Link>
           <span>/</span>
-          <Link to={`/shop?category=${product.category}`}>{product.category}</Link>
+          <Link to={`/shop?category=${product.category}`}>{categoryName}</Link>
           <span>/</span>
           <span>{product.name}</span>
         </nav>
@@ -100,12 +101,11 @@ export default function ProductDetail() {
                 />
               )}
               <span className="pdp-zoomhint">
-                <Icon name="zoom" size={15} /> Hover to zoom
-              </span>
+                <Icon name="zoom" size={15} />برای بزرگ‌نمایی نگه دارید</span>
               {product.badge && <span className="badge">{product.badge}</span>}
             </div>
 
-            <div className="pdp-thumbs" role="tablist" aria-label="Product images">
+            <div className="pdp-thumbs" role="tablist" aria-label="تصویرهای محصول">
               {product.images.map((img, i) => (
                 <button
                   key={img}
@@ -122,12 +122,12 @@ export default function ProductDetail() {
           </div>
 
           <div className="pdp-info">
-            <p className="eyebrow">{product.category}</p>
+            <p className="eyebrow">{categoryName}</p>
             <h1 className="pdp-title">{product.name}</h1>
             <div className="pdp-rating">
               <Stars value={product.rating} size={14} />
               <a href="#reviews">
-                {product.rating} · {product.reviews} reviews
+                {faNumber(product.rating)} · {faNumber(product.reviews)} نظر
               </a>
             </div>
 
@@ -137,7 +137,7 @@ export default function ProductDetail() {
 
             <div className="option-group">
               <div className="option-head">
-                <p className="option-label">Metal</p>
+                <p className="option-label">فلز</p>
                 <span className="option-value">{metal}</span>
               </div>
               <div className="chip-row">
@@ -157,11 +157,9 @@ export default function ProductDetail() {
               <div className="option-group">
                 <div className="option-head">
                   <p className="option-label">
-                    {product.category === 'rings' || product.category === 'bridal' ? 'Ring size' : 'Length'}
+                    {product.category === 'rings' || product.category === 'bridal' ? 'سایز انگشتر' : 'طول'}
                   </p>
-                  <Link className="text-btn text-btn--underline" to="/about#sizing">
-                    Size guide
-                  </Link>
+                  <Link className="text-btn text-btn--underline" to="/about#sizing">راهنمای اندازه</Link>
                 </div>
                 <div className="chip-row">
                   {product.sizes.map((s) => (
@@ -179,11 +177,11 @@ export default function ProductDetail() {
 
             <div className="pdp-actions">
               <div className="stepper stepper--lg">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">
+                <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="کاهش تعداد">
                   <Icon name="minus" size={14} />
                 </button>
                 <span>{qty}</span>
-                <button onClick={() => setQty(Math.min(9, qty + 1))} aria-label="Increase quantity">
+                <button onClick={() => setQty(Math.min(9, qty + 1))} aria-label="افزایش تعداد">
                   <Icon name="plus" size={14} />
                 </button>
               </div>
@@ -191,12 +189,12 @@ export default function ProductDetail() {
                 className="btn btn--gold btn--grow"
                 onClick={() => addToCart(product, { qty, metal, size })}
               >
-                Add to bag — {formatPrice(product.price * qty)}
+                افزودن به کیف — {formatPrice(product.price * qty)}
               </button>
               <button
                 className={`icon-btn icon-btn--outline icon-btn--lg ${wishlisted ? 'is-active' : ''}`}
                 onClick={() => toggleWishlist(product)}
-                aria-label={wishlisted ? 'Remove from wishlist' : 'Save to wishlist'}
+                aria-label={wishlisted ? 'Remove from wishlist' : 'افزودن به علاقه‌مندی‌ها'}
                 aria-pressed={wishlisted}
               >
                 <Icon name="heart" size={20} filled={wishlisted} />
@@ -204,17 +202,15 @@ export default function ProductDetail() {
             </div>
 
             <ul className="pdp-assurance">
-              <li><Icon name="truck" size={17} /> Complimentary insured delivery, 2–5 business days</li>
-              <li><Icon name="refresh" size={17} /> Free returns within 30 days</li>
-              <li><Icon name="gift" size={17} /> Signature packaging & handwritten note included</li>
-              <li><Icon name="sparkle" size={17} /> Complimentary engraving and lifetime servicing</li>
+              <li><Icon name="truck" size={17} />ارسال بیمه‌شدهٔ رایگان، ۲ تا ۵ روز کاری</li>
+              <li><Icon name="refresh" size={17} />مرجوعی رایگان تا ۳۰ روز</li>
+              <li><Icon name="gift" size={17} />بسته‌بندی امضا و یادداشت دست‌نویس همراه است</li>
+              <li><Icon name="sparkle" size={17} />حکاکی رایگان و سرویس مادام‌العمر</li>
             </ul>
 
             <div className="pdp-accordions">
               <details open>
-                <summary>
-                  Details & specifications
-                  <Icon name="chevronDown" size={16} />
+                <summary>جزئیات و مشخصات<Icon name="chevronDown" size={16} />
                 </summary>
                 <dl className="spec-list">
                   {product.specs.map(([label, value]) => (
@@ -226,27 +222,14 @@ export default function ProductDetail() {
                 </dl>
               </details>
               <details>
-                <summary>
-                  Delivery & returns
-                  <Icon name="chevronDown" size={16} />
+                <summary>ارسال و مرجوعی<Icon name="chevronDown" size={16} />
                 </summary>
-                <p>
-                  Every order ships insured and tracked in signature packaging, complimentary worldwide.
-                  Paris and EU delivery is typically 2–3 business days; international 3–5. Returns are
-                  accepted within 30 days in original condition, with a prepaid label supplied by our
-                  client team. Engraved and bespoke pieces are final sale.
-                </p>
+                <p>هر سفارش بیمه و ردیابی می‌شود و در بسته‌بندی امضا و به‌صورت رایگان به سراسر جهان می‌رود. تحویل در پاریس و اتحادیهٔ اروپا معمولاً ۲ تا ۳ روز کاری و بین‌المللی ۳ تا ۵ روز است. مرجوعی تا ۳۰ روز در وضعیت اولیه، با برچسب پیش‌پرداخت‌شدهٔ تیم مشتریان پذیرفته می‌شود. قطعه‌های حکاکی‌شده و سفارشی فروش قطعی دارند.</p>
               </details>
               <details>
-                <summary>
-                  Care & servicing
-                  <Icon name="chevronDown" size={16} />
+                <summary>نگهداری و سرویس<Icon name="chevronDown" size={16} />
                 </summary>
-                <p>
-                  Store your piece separately in its case and avoid perfume and chlorine. We offer
-                  complimentary cleaning and inspection for the lifetime of the piece, plus restoration
-                  and resizing at cost. Contact client services to arrange a service.
-                </p>
+                <p>قطعه‌تان را جداگانه در جعبهٔ خودش نگه دارید و از عطر و کلر دور بدارید. تمیزکاری و بازبینی رایگان برای تمام عمر قطعه ارائه می‌دهیم، و بازسازی و تغییر اندازه با قیمت تمام‌شده. برای هماهنگی با خدمات مشتریان تماس بگیرید.</p>
               </details>
             </div>
           </div>
@@ -254,12 +237,12 @@ export default function ProductDetail() {
 
         <section className="pdp-reviews" id="reviews">
           <div className="reviews-summary">
-            <p className="eyebrow">Client reviews</p>
+            <p className="eyebrow">نظر مشتریان</p>
             <div className="reviews-score">
               <strong>{product.rating.toFixed(1)}</strong>
               <div>
                 <Stars value={product.rating} size={15} />
-                <span>{product.reviews} verified reviews</span>
+                <span>{faNumber(product.reviews)} نظر تأییدشده</span>
               </div>
             </div>
             <div className="reviews-bars">
@@ -294,7 +277,7 @@ export default function ProductDetail() {
         </section>
 
         <section className="section pdp-related">
-          <SectionHead eyebrow="Complete the look" title="You May Also Love" link="/shop" linkLabel="View all" />
+          <SectionHead eyebrow="کامل کردن استایل" title="شاید این‌ها را هم بخواهید" link="/shop" linkLabel="دیدن همه" />
           <div className="product-grid">
             {related.map((item) => (
               <ProductCard key={item.id} product={item} />
@@ -308,9 +291,7 @@ export default function ProductDetail() {
           <span>{product.name}</span>
           <strong>{formatPrice(product.price)}</strong>
         </div>
-        <button className="btn btn--gold btn--sm" onClick={() => addToCart(product, { qty, metal, size })}>
-          Add to bag
-        </button>
+        <button className="btn btn--gold btn--sm" onClick={() => addToCart(product, { qty, metal, size })}>افزودن به کیف</button>
       </div>
     </div>
   )

@@ -44,16 +44,16 @@ export default function Checkout() {
       setPlacing(false)
       setPlaced(order)
       clearCart()
-      notify(`Order ${order.number} noted — this is a demo, so nothing was charged.`, 'success')
+      notify(`سفارش ${order.number} ثبت شد — این نسخه نمایشی است، پس مبلغی برداشت نشد.`, 'success')
     }, 900)
   }
 
   return (
     <div className="container checkout">
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
+      <nav className="breadcrumb" aria-label="مسیر صفحه">
+        <Link to="/">خانه</Link>
         <span>/</span>
-        <span>Checkout</span>
+        <span>تکمیل خرید</span>
       </nav>
 
       {placed ? (
@@ -61,106 +61,101 @@ export default function Checkout() {
       ) : (
         <>
           <header className="checkout__head">
-            <p className="eyebrow">Secure checkout</p>
-            <h1 className="page-title">Complete Your Order</h1>
+            <p className="eyebrow">پرداخت امن</p>
+            <h1 className="page-title">تکمیل سفارش</h1>
           </header>
 
           <div className="demo-note">
             <Icon name="sparkle" size={18} />
             <p>
-              <strong>This is a demonstration storefront.</strong> No payment is processed and no order is
-              placed. Cart contents are saved on this device only.
-            </p>
+              <strong>این یک فروشگاه نمایشی است.</strong>هیچ پرداختی انجام نمی‌شود و هیچ سفارشی ثبت نمی‌گردد. محتوای سبد فقط روی همین دستگاه ذخیره می‌شود.</p>
           </div>
 
           {cart.length === 0 ? (
             <div className="shop-empty">
               <Icon name="bag" size={30} stroke={1} />
-              <h2>Your bag is empty</h2>
-              <p>Add a piece to see the checkout experience.</p>
-              <Link className="btn btn--gold" to="/shop">Explore the collection</Link>
+              <h2>سبد خرید شما خالی است</h2>
+              <p>برای دیدن تجربهٔ خرید، یک قطعه به سبد بیفزایید.</p>
+              <Link className="btn btn--gold" to="/shop">کشف مجموعه</Link>
             </div>
           ) : (
             <div className="checkout__grid">
               <form className="checkout__form" onSubmit={placeOrder}>
                 <section>
-                  <h2>Contact</h2>
+                  <h2>تماس</h2>
                   <div className="form-row">
                     <label className="field">
-                      <span>First name</span>
-                      <input required name="firstName" placeholder="First name" />
+                      <span>نام</span>
+                      <input required name="firstName" placeholder="نام" />
                     </label>
                     <label className="field">
-                      <span>Last name</span>
-                      <input required name="lastName" placeholder="Last name" />
+                      <span>نام خانوادگی</span>
+                      <input required name="lastName" placeholder="نام خانوادگی" />
                     </label>
                   </div>
                   <label className="field">
-                    <span>Email</span>
+                    <span>ایمیل</span>
                     <input type="email" required name="email" placeholder="you@example.com" />
                   </label>
                   <label className="field">
-                    <span>Phone (for delivery)</span>
+                    <span>تلفن (برای تحویل)</span>
                     <input type="tel" placeholder="+33 6 00 00 00 00" />
                   </label>
                 </section>
 
                 <section>
-                  <h2>Delivery</h2>
+                  <h2>تحویل</h2>
                   <label className="field">
-                    <span>Address</span>
-                    <input required placeholder="Street and number" />
+                    <span>نشانی</span>
+                    <input required placeholder="خیابان و پلاک" />
                   </label>
                   <div className="form-row">
                     <label className="field">
-                      <span>City</span>
-                      <input required placeholder="City" />
+                      <span>شهر</span>
+                      <input required placeholder="شهر" />
                     </label>
                     <label className="field">
-                      <span>Postal code</span>
+                      <span>کد پستی</span>
                       <input required placeholder="75002" />
                     </label>
                   </div>
                   <label className="field">
-                    <span>Country</span>
-                    <select defaultValue="France">
-                      <option>France</option>
-                      <option>United Kingdom</option>
-                      <option>Germany</option>
-                      <option>United States</option>
-                      <option>United Arab Emirates</option>
-                      <option>Japan</option>
+                    <span>کشور</span>
+                    <select defaultValue="فرانسه">
+                      <option>فرانسه</option>
+                      <option>بریتانیا</option>
+                      <option>آلمان</option>
+                      <option>ایالات متحده</option>
+                      <option>امارات متحدهٔ عربی</option>
+                      <option>ژاپن</option>
                     </select>
                   </label>
                   <label className="field">
-                    <span>Gift note (optional)</span>
-                    <textarea rows="2" placeholder="We will write this on our handwritten card." />
+                    <span>یادداشت هدیه (اختیاری)</span>
+                    <textarea rows="2" placeholder="این را روی کارت دست‌نویس خود می‌نویسیم." />
                   </label>
                 </section>
 
                 <section>
-                  <h2>Payment</h2>
+                  <h2>پرداخت</h2>
                   <div className="payment-placeholder">
                     <Icon name="lock" size={18} />
-                    <p>
-                      Card and wallet payments are not connected in this demo. In production this step would
-                      open a secure, PCI-compliant payment sheet.
-                    </p>
+                    <p>پرداخت کارت و کیف پول در این نسخهٔ نمایشی متصل نیست. در نسخهٔ نهایی، این مرحله یک صفحهٔ پرداخت امن و منطبق با PCI باز می‌کند.</p>
                   </div>
                 </section>
 
                 <button className="btn btn--gold btn--block btn--lg" type="submit" disabled={placing}>
-                  {placing ? 'Processing…' : `Place demo order — ${formatPrice(total)}`}
+                  {placing ? 'در حال پردازش…' : `Place demo order — ${formatPrice(total)}`}
                   <Icon name="arrowRight" size={17} />
                 </button>
                 <p className="fineprint">
                   Demo only: no charge, no order, no data leaves this browser. By continuing you agree to our{' '}
-                  <Link to="/legal/terms">terms</Link> and <Link to="/legal/privacy">privacy policy</Link>.
+                  <Link to="/legal/terms">terms</Link>و<Link to="/legal/privacy">سیاست حریم خصوصی</Link>.
                 </p>
               </form>
 
               <aside className="checkout__summary">
-                <h2>Order summary</h2>
+                <h2>خلاصهٔ سفارش</h2>
                 <ul className="checkout-lines">
                   {cart.map((line) => {
                     const product = getProduct(line.id)
@@ -176,16 +171,14 @@ export default function Checkout() {
                           )}
                           <p>{line.metal}{line.size ? ` · ${line.size}` : ''}</p>
                           <div className="checkout-lines__qty">
-                            <button onClick={() => updateQty(line.key, line.qty - 1)} aria-label="Decrease quantity">
+                            <button onClick={() => updateQty(line.key, line.qty - 1)} aria-label="کاهش تعداد">
                               <Icon name="minus" size={12} />
                             </button>
                             <span>{line.qty}</span>
-                            <button onClick={() => updateQty(line.key, line.qty + 1)} aria-label="Increase quantity">
+                            <button onClick={() => updateQty(line.key, line.qty + 1)} aria-label="افزایش تعداد">
                               <Icon name="plus" size={12} />
                             </button>
-                            <button className="text-btn checkout-lines__remove" onClick={() => removeLine(line.key)}>
-                              Remove
-                            </button>
+                            <button className="text-btn checkout-lines__remove" onClick={() => removeLine(line.key)}>حذف</button>
                           </div>
                         </div>
                         <strong>{formatPrice(product.price * line.qty)}</strong>
@@ -195,16 +188,16 @@ export default function Checkout() {
                 </ul>
 
                 <div className="summary-rows">
-                  <div><span>Subtotal</span><span>{formatPrice(subtotal)}</span></div>
-                  <div><span>Insured delivery</span><span>{shipping === 0 ? 'Complimentary' : formatPrice(shipping)}</span></div>
-                  <div><span>Duties & taxes</span><span>Calculated at checkout</span></div>
-                  <div className="summary-total"><span>Total</span><strong>{formatPrice(total)}</strong></div>
+                  <div><span>جمع سبد</span><span>{formatPrice(subtotal)}</span></div>
+                  <div><span>ارسال بیمه‌شده</span><span>{shipping === 0 ? 'رایگان' : formatPrice(shipping)}</span></div>
+                  <div><span>عوارض و مالیات</span><span>در مرحلهٔ پرداخت محاسبه می‌شود</span></div>
+                  <div className="summary-total"><span>مبلغ کل</span><strong>{formatPrice(total)}</strong></div>
                 </div>
 
                 <ul className="summary-trust">
-                  <li><Icon name="lock" size={15} /> Secure, encrypted checkout</li>
-                  <li><Icon name="truck" size={15} /> Insured signature delivery</li>
-                  <li><Icon name="refresh" size={15} /> 30-day returns</li>
+                  <li><Icon name="lock" size={15} />پرداخت امن و رمزنگاری‌شده</li>
+                  <li><Icon name="truck" size={15} />تحویل بیمه‌شده با امضا</li>
+                  <li><Icon name="refresh" size={15} />۳۰ روز مهلت مرجوعی</li>
                 </ul>
               </aside>
             </div>

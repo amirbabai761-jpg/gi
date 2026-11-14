@@ -9,11 +9,11 @@ export default function JournalGrid() {
     <section className="section journal">
       <div className="container">
         <SectionHead
-          eyebrow="The journal"
-          title="Inspiration & Stories"
-          copy="Notes from the atelier — on stones, styling and the pieces we keep for a lifetime."
+          eyebrow="ژورنال"
+          title="الهام و روایت‌ها"
+          copy="یادداشت‌هایی از آتلیه — دربارهٔ سنگ‌ها، استایل و قطعه‌هایی که یک عمر نگه می‌داریم."
           link="/journal"
-          linkLabel="Read all articles"
+          linkLabel="خواندن همهٔ مقاله‌ها"
         />
         <div className="journal-grid">
           {articles.map((article) => (
@@ -29,9 +29,7 @@ export default function JournalGrid() {
                 <Link to={`/journal/${article.slug}`}>{article.title}</Link>
               </h3>
               <p className="journal-card__excerpt">{article.excerpt}</p>
-              <Link className="link-arrow link-arrow--sm" to={`/journal/${article.slug}`}>
-                Read more
-                <Icon name="arrowRight" size={15} />
+              <Link className="link-arrow link-arrow--sm" to={`/journal/${article.slug}`}>بیشتر بخوانید<Icon name="arrowRight" size={15} />
               </Link>
             </article>
           ))}

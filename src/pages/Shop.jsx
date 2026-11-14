@@ -2,21 +2,21 @@ import React, { useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
 import Icon from '../components/Icon.jsx'
-import { categories, collections, products } from '../data/catalog.js'
+import { categories, collections, faNumber, products } from '../data/catalog.js'
 
 const priceBands = [
-  { key: 'under-1000', label: 'Under $1,000', test: (p) => p.price < 1000 },
+  { key: 'under-1000', label: 'زیر ۱٬۰۰۰ دلار', test: (p) => p.price < 1000 },
   { key: '1000-2000', label: '$1,000 – $2,000', test: (p) => p.price >= 1000 && p.price < 2000 },
   { key: '2000-3000', label: '$2,000 – $3,000', test: (p) => p.price >= 2000 && p.price < 3000 },
-  { key: '3000-plus', label: '$3,000 and above', test: (p) => p.price >= 3000 },
+  { key: '3000-plus', label: '۳٬۰۰۰ دلار و بالاتر', test: (p) => p.price >= 3000 },
 ]
 
 const sortOptions = [
-  { key: 'featured', label: 'Featured' },
-  { key: 'new', label: 'Newest first' },
-  { key: 'price-asc', label: 'Price: low to high' },
-  { key: 'price-desc', label: 'Price: high to low' },
-  { key: 'rating', label: 'Top rated' },
+  { key: 'featured', label: 'منتخب' },
+  { key: 'new', label: 'تازه‌ترین‌ها' },
+  { key: 'price-asc', label: 'قیمت: کم به زیاد' },
+  { key: 'price-desc', label: 'قیمت: زیاد به کم' },
+  { key: 'rating', label: 'بیشترین امتیاز' },
 ]
 
 export default function Shop() {
@@ -67,7 +67,7 @@ export default function Shop() {
         break
       case 'new':
         list = [...list].sort((a, b) => {
-          const score = (p) => (p.badge === 'New Arrival' ? 2 : p.badge === 'Limited Edition' ? 1 : 0)
+          const score = (p) => (p.badge === 'تازه رسیده' ? 2 : p.badge === 'نسخهٔ محدود' ? 1 : 0)
           return score(b) - score(a)
         })
         break
@@ -89,13 +89,13 @@ export default function Shop() {
       ? activeCategoryData.name
       : activeCollectionData
         ? activeCollectionData.name
-        : 'The Full Collection'
+        : 'همهٔ مجموعه'
 
   const description = activeCategoryData
     ? activeCategoryData.tagline
     : activeCollectionData
       ? activeCollectionData.copy
-      : 'Fine jewellery in recycled 18k gold and traceable stones — designed in Paris, made by hand.'
+      : 'جواهرات نفیس در طلای بازیافتی ۱۸ عیار و سنگ‌های قابل ردیابی — طراحی در پاریس، ساخت با دست.'
 
   const chips = [
     activeCategoryData && { key: 'category', label: activeCategoryData.name },
@@ -107,10 +107,10 @@ export default function Shop() {
   return (
     <div className="shop">
       <div className="container shop__top">
-        <nav className="breadcrumb" aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
+        <nav className="breadcrumb" aria-label="مسیر صفحه">
+          <Link to="/">خانه</Link>
           <span>/</span>
-          <Link to="/shop">Jewelry</Link>
+          <Link to="/shop">جواهرات</Link>
           {activeCategoryData && (
             <>
               <span>/</span>
@@ -127,12 +127,12 @@ export default function Shop() {
 
         <div className="shop__heading">
           <div>
-            <p className="eyebrow">Fine jewelry</p>
+            <p className="eyebrow">جواهرات نفیس</p>
             <h1 className="page-title">{title}</h1>
             <p className="shop__desc">{description}</p>
           </div>
           <p className="shop__count">
-            {filtered.length} {filtered.length === 1 ? 'piece' : 'pieces'}
+            {faNumber(filtered.length)} قطعه
           </p>
         </div>
       </div>
@@ -144,17 +144,16 @@ export default function Shop() {
           aria-expanded={filtersOpen}
         >
           <Icon name="filter" size={17} />
-          Filters
+          فیلترها
           {chips.length > 0 && <span className="count">{chips.length}</span>}
         </button>
 
-        <aside className={`shop-filters ${filtersOpen ? 'is-open' : ''}`} aria-label="Filters">
+        <aside className={`shop-filters ${filtersOpen ? 'is-open' : ''}`} aria-label="فیلترها">
           <div className="filter-group">
-            <p className="filter-title">Category</p>
+            <p className="filter-title">دسته</p>
             <ul>
               <li>
-                <button className={!activeCategory ? 'is-active' : ''} onClick={() => update('category', '')}>
-                  All jewelry <span>{products.length}</span>
+                <button className={!activeCategory ? 'is-active' : ''} onClick={() => update('category', '')}>همهٔ جواهرات<span>{products.length}</span>
                 </button>
               </li>
               {categories.map((category) => (
@@ -172,12 +171,10 @@ export default function Shop() {
           </div>
 
           <div className="filter-group">
-            <p className="filter-title">Collection</p>
+            <p className="filter-title">مجموعه</p>
             <ul>
               <li>
-                <button className={!activeCollection ? 'is-active' : ''} onClick={() => update('collection', '')}>
-                  All collections
-                </button>
+                <button className={!activeCollection ? 'is-active' : ''} onClick={() => update('collection', '')}>همهٔ مجموعه‌ها</button>
               </li>
               {collections.map((collection) => (
                 <li key={collection.slug}>
@@ -193,7 +190,7 @@ export default function Shop() {
           </div>
 
           <div className="filter-group">
-            <p className="filter-title">Price</p>
+            <p className="filter-title">قیمت</p>
             <ul>
               {priceBands.map((band) => (
                 <li key={band.key}>
@@ -210,7 +207,7 @@ export default function Shop() {
 
           <div className="filter-note">
             <Icon name="sparkle" size={18} />
-            <p>Every piece includes lifetime servicing and signature gift packaging.</p>
+            <p>هر قطعه شامل سرویس مادام‌العمر و بسته‌بندی امضای ماست.</p>
           </div>
         </aside>
 
@@ -224,14 +221,12 @@ export default function Shop() {
                 </button>
               ))}
               {chips.length > 1 && (
-                <button className="text-btn" onClick={clearAll}>
-                  Clear all
-                </button>
+                <button className="text-btn" onClick={clearAll}>پاک کردن همه</button>
               )}
             </div>
             <label className="sort-select">
-              <span>Sort</span>
-              <select value={sort} onChange={(e) => update('sort', e.target.value)} aria-label="Sort products">
+              <span>چیدمان</span>
+              <select value={sort} onChange={(e) => update('sort', e.target.value)} aria-label="چیدمان محصولات">
                 {sortOptions.map((option) => (
                   <option key={option.key} value={option.key}>
                     {option.label}
@@ -245,11 +240,9 @@ export default function Shop() {
           {filtered.length === 0 ? (
             <div className="shop-empty">
               <Icon name="search" size={30} stroke={1} />
-              <h2>No pieces match those filters</h2>
-              <p>Try widening the price range, or browse the full collection.</p>
-              <button className="btn btn--outline" onClick={clearAll}>
-                Clear filters
-              </button>
+              <h2>قطعه‌ای با این فیلترها هم‌خوان نیست</h2>
+              <p>بازهٔ قیمت را بازتر کنید یا همهٔ مجموعه را ببینید.</p>
+              <button className="btn btn--outline" onClick={clearAll}>پاک کردن فیلترها</button>
             </div>
           ) : (
             <div className="product-grid product-grid--shop">

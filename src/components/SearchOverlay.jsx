@@ -5,7 +5,7 @@ import Icon from './Icon.jsx'
 import { categories, formatPrice, photo, products } from '../data/catalog.js'
 import { useStore } from '../store/StoreContext.jsx'
 
-const suggestions = ['Diamond', 'Pearl', 'Gold hoops', 'Bridal', 'Signet']
+const suggestions = ['الماس', 'مروارید', 'Gold hoops', 'عروس', 'Signet']
 
 export default function SearchOverlay() {
   const { ui, closeUi } = useStore()
@@ -26,25 +26,25 @@ export default function SearchOverlay() {
   }, [query])
 
   return (
-    <Overlay open={ui.search} onClose={() => closeUi('search')} variant="search" label="Search the collection">
+    <Overlay open={ui.search} onClose={() => closeUi('search')} variant="search" label="جست‌وجو در مجموعه">
       <div className="search-panel">
         <label className="search-field">
           <Icon name="search" size={20} />
           <input
             type="search"
-            placeholder="Search rings, necklaces, collections…"
+            placeholder="جست‌وجوی انگشتر، گردنبند، مجموعه…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
-            aria-label="Search products"
+            aria-label="جست‌وجوی محصولات"
           />
-          <span className="search-field__hint">ESC to close</span>
+          <span className="search-field__hint">ESC برای بستن</span>
         </label>
 
         {!query && (
           <div className="search-suggest">
             <div>
-              <p className="eyebrow">Popular searches</p>
+              <p className="eyebrow">جست‌وجوهای پرطرفدار</p>
               <div className="chip-row">
                 {suggestions.map((s) => (
                   <button key={s} className="chip" onClick={() => setQuery(s)}>
@@ -54,7 +54,7 @@ export default function SearchOverlay() {
               </div>
             </div>
             <div>
-              <p className="eyebrow">Browse</p>
+              <p className="eyebrow">مرور</p>
               <div className="chip-row">
                 {categories.map((c) => (
                   <Link key={c.slug} className="chip" to={`/shop?category=${c.slug}`} onClick={() => closeUi('search')}>
@@ -72,9 +72,7 @@ export default function SearchOverlay() {
               {results.length} {results.length === 1 ? 'piece' : 'pieces'} for “{query}”
             </p>
             {results.length === 0 ? (
-              <p className="search-empty">
-                Nothing matched that search. Try “diamond”, “pearl” or browse the full collection.
-              </p>
+              <p className="search-empty">چیزی پیدا نشد. «الماس» یا «مروارید» را امتحان کنید یا همهٔ مجموعه را ببینید.</p>
             ) : (
               <ul>
                 {results.map((product) => (
@@ -92,9 +90,7 @@ export default function SearchOverlay() {
                 ))}
               </ul>
             )}
-            <Link className="btn btn--outline search-results__all" to={`/shop?q=${encodeURIComponent(query)}`} onClick={() => closeUi('search')}>
-              See all results
-              <Icon name="arrowRight" size={16} />
+            <Link className="btn btn--outline search-results__all" to={`/shop?q=${encodeURIComponent(query)}`} onClick={() => closeUi('search')}>دیدن همهٔ نتایج<Icon name="arrowRight" size={16} />
             </Link>
           </div>
         )}

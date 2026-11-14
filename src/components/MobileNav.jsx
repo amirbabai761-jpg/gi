@@ -15,24 +15,20 @@ export default function MobileNav() {
   }
 
   return (
-    <Overlay open={ui.menu} onClose={close} variant="drawer-left" label="Menu">
+    <Overlay open={ui.menu} onClose={close} variant="drawer-left" label="منو">
       <div className="mobile-nav">
         <p className="brand brand--mobile">
           <span className="brand__name">Maison Lumière</span>
-          <span className="brand__sub">Fine Jewels</span>
+          <span className="brand__sub">جواهرات نفیس</span>
         </p>
 
         <button className="mobile-search" onClick={() => { closeUi('menu'); openSearch() }}>
-          <Icon name="search" size={17} />
-          Search the collection
-        </button>
+          <Icon name="search" size={17} />جست‌وجو در مجموعه</button>
 
         <nav aria-label="Mobile">
           <ul className="accordion">
             <li className="accordion__item">
-              <button className={`accordion__trigger ${panel === 'jewelry' ? 'is-open' : ''}`} onClick={() => setPanel(panel === 'jewelry' ? null : 'jewelry')}>
-                Jewelry
-                <Icon name="chevronDown" size={16} />
+              <button className={`accordion__trigger ${panel === 'jewelry' ? 'is-open' : ''}`} onClick={() => setPanel(panel === 'jewelry' ? null : 'jewelry')}>جواهرات<Icon name="chevronDown" size={16} />
               </button>
               {panel === 'jewelry' && (
                 <ul className="accordion__panel">
@@ -44,15 +40,13 @@ export default function MobileNav() {
                     </li>
                   ))}
                   <li>
-                    <Link to="/shop" onClick={close}>View all jewelry</Link>
+                    <Link to="/shop" onClick={close}>دیدن همهٔ جواهرات</Link>
                   </li>
                 </ul>
               )}
             </li>
             <li className="accordion__item">
-              <button className={`accordion__trigger ${panel === 'collections' ? 'is-open' : ''}`} onClick={() => setPanel(panel === 'collections' ? null : 'collections')}>
-                Collections
-                <Icon name="chevronDown" size={16} />
+              <button className={`accordion__trigger ${panel === 'collections' ? 'is-open' : ''}`} onClick={() => setPanel(panel === 'collections' ? null : 'collections')}>مجموعه‌ها<Icon name="chevronDown" size={16} />
               </button>
               {panel === 'collections' && (
                 <ul className="accordion__panel">
@@ -67,11 +61,11 @@ export default function MobileNav() {
               )}
             </li>
             {[
-              ['New Arrivals', '/shop?sort=new'],
-              ['Engagement & Bridal', '/shop?category=bridal'],
-              ['Gifts', '/shop?sort=featured'],
-              ['Our Story', '/about'],
-              ['The Journal', '/journal'],
+              ['تازه‌ها', '/shop?sort=new'],
+              ['نامزدی و عروس', '/shop?category=bridal'],
+              ['هدایا', '/shop?sort=featured'],
+              ['داستان ما', '/about'],
+              ['ژورنال', '/journal'],
             ].map(([label, to]) => (
               <li key={label} className="accordion__item">
                 <Link className="accordion__trigger" to={to} onClick={close}>
@@ -86,24 +80,19 @@ export default function MobileNav() {
         <div className="mobile-nav__feature">
           <img src={photo('1616837874254-8d5aaa63e273', 640)} alt="" loading="lazy" />
           <div>
-            <p className="eyebrow">Book a private viewing</p>
-            <p>An hour with our jewellers, in the atelier or by video.</p>
-            <Link className="btn btn--outline btn--sm" to="/about#appointment" onClick={close}>
-              Request an appointment
-            </Link>
+            <p className="eyebrow">رزرو بازدید خصوصی</p>
+            <p>یک ساعت با جواهرسازان ما، در آتلیه یا از طریق ویدئو.</p>
+            <Link className="btn btn--outline btn--sm" to="/about#appointment" onClick={close}>درخواست وقت</Link>
           </div>
         </div>
 
         <div className="mobile-nav__foot">
           <button className="text-btn" onClick={() => { closeUi('menu'); openAccount() }}>
-            <Icon name="user" size={16} /> Account
-          </button>
+            <Icon name="user" size={16} />حساب کاربری</button>
           <Link className="text-btn" to="/wishlist" onClick={close}>
-            <Icon name="heart" size={16} /> Wishlist
-          </Link>
+            <Icon name="heart" size={16} />علاقه‌مندی‌ها</Link>
           <a className="text-btn" href="mailto:clients@maisonlumiere.com">
-            <Icon name="mail" size={16} /> Contact
-          </a>
+            <Icon name="mail" size={16} />تماس</a>
         </div>
       </div>
     </Overlay>
